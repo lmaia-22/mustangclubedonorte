@@ -14,11 +14,12 @@ const FullScreenImage: React.FC<FullScreenImageProps> = ({ imageUrl }) => {
     if (imageRef.current) {
       const tl = gsap.timeline({
         onComplete: () => {
-          // Optional: Make the element invisible after the animation
+          // Make the element invisible after the animation
           gsap.set(imageRef.current, { visibility: 'hidden' });
         },
       });
 
+      // Initial settings for the image
       gsap.set(imageRef.current, {
         position: 'fixed',
         top: '50%',
@@ -28,14 +29,34 @@ const FullScreenImage: React.FC<FullScreenImageProps> = ({ imageUrl }) => {
         width: '100%',
         height: '100%',
         zIndex: 9999,
-        borderRadius: '0%', // Start with no border radius
+        borderRadius: '0%',
       });
 
+      // Car revving up effect
       tl.to(imageRef.current, {
-        duration: 2,
-        scale: 0, // Scale down to 20% of the original size
-        borderRadius: '100%', // Apply border radius to create a circular shape
+        duration: 0.5,
+        scale: 1.05,
         ease: 'power2.inOut',
+      })
+      .to(imageRef.current, {
+        duration: 0.3,
+        scale: 0.95,
+        ease: 'power2.inOut',
+      })
+      .to(imageRef.current, {
+        duration: 0.2,
+        scale: 1.02,
+        ease: 'power2.inOut',
+      });
+
+      // Take-off effect
+      tl.to(imageRef.current, {
+        duration: 1.5,
+        scale: 0.1, // Scale down as if the car is speeding off
+        y: '-200%', // Move up off the screen
+        rotate: 15, // Slight rotation for added effect
+        borderRadius: '50%',
+        ease: 'power4.in',
       });
     }
   }, []);

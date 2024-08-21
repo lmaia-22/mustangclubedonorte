@@ -18,29 +18,31 @@ const BLUR_FADE_DELAY = 0.00;
 export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
-        <section id="hero">
-          <div className="mx-auto w-full space-y-8">
-            <div className="gap-2 flex justify-between">
-              <div className="flex-col flex flex-1 space-y-1.5">
-                <BlurFadeText
-                  delay={BLUR_FADE_DELAY}
-                  className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
-                  yOffset={8}
-                  text={`${DATA.name}`} />
-                <BlurFadeText
-                  className="max-w-[600px] md:text-xl"
-                  delay={BLUR_FADE_DELAY} 
-                  text={DATA.description} />
-              </div>
-              <BlurFade delay={BLUR_FADE_DELAY}>
-                <Avatar className="w-44 h-36">
-                  <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                  <AvatarFallback>{DATA.initials}</AvatarFallback>
-                </Avatar>
-              </BlurFade>
+      <section id="hero">
+        <div className="mx-auto w-full space-y-8">
+          <div className="flex flex-col md:flex-row md:gap-2 justify-between items-center">
+            <BlurFade delay={BLUR_FADE_DELAY}>
+              <Avatar className="w-36 h-36 md:w-44 md:h-44 mb-4 md:mb-0">
+                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                <AvatarFallback>{DATA.initials}</AvatarFallback>
+              </Avatar>
+            </BlurFade>
+            <div className="flex flex-col flex-1 space-y-1.5 items-center justify-center md:text-left">
+              <BlurFadeText
+                delay={BLUR_FADE_DELAY}
+                className="text-3xl font-bold tracking-tighter text-center sm:text-5xl xl:text-6xl/none"
+                yOffset={8}
+                text={`${DATA.name}`} 
+              />
+              <BlurFadeText
+                className="max-w-[600px] md:text-xl text-center"
+                delay={BLUR_FADE_DELAY} 
+                text={DATA.description} 
+              />
             </div>
           </div>
-        </section>
+        </div>
+      </section>
         <section id="about">
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
@@ -58,12 +60,12 @@ export default function Page() {
             </div>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
-            <Markdown className="prose max-w-full text-pretty font-sans text-base text-muted-foreground dark:prose-invert mt-4">
+            <Markdown className="prose max-w-full text-pretty font-sans text-base text-muted-foreground dark:prose-invert mt-4 text-center">
               {DATA.summary}
             </Markdown>
           </BlurFade>
-          <BlurFade delay={BLUR_FADE_DELAY * 4}>
-            <Markdown className="prose max-w-full text-pretty font-sans text-base text-muted-foreground dark:prose-invert">
+          <BlurFade delay={BLUR_FADE_DELAY * 4} className="my-4">
+            <Markdown className="prose max-w-full text-pretty font-sans text-base text-muted-foreground dark:prose-invert text-center">
               {DATA.summary1}
             </Markdown>
           </BlurFade>
@@ -264,7 +266,7 @@ export default function Page() {
                     key={work.question}
                     delay={BLUR_FADE_DELAY * 6 + id * 0.05}
                   >
-                    <div className="h-full flex">
+                    <div className="h-full flex w-full">
                       <ResumeCard
                         key={work.question}
                         title={work.question}

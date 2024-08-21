@@ -9,6 +9,7 @@ import "./globals.css";
 import FullScreenImage from "@/components/firstRender";
 import Footer from "@/components/footer";
 import FullscreenVideo from "@/components/video";
+import Head from 'next/head';
 import CarScroller from "@/components/car";
 
 const fontSans = FontSans({
@@ -59,9 +60,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <Head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+        <link rel="manifest" href="/site.webmanifest"/>
+      </Head>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans",
+          "min-h-screen bg-background font-sans scrollbar-hide",
           fontSans.variable
         )}
       >
