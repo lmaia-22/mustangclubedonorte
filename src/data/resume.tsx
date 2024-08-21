@@ -111,12 +111,12 @@ export const DATA = {
       "No mínimo 12 eventos ao ano."
     },
     {
-      question: "Os eventos são todos pagos?",
+      question: "Os eventos/passeios são todos pagos?",
       answer:
         "Cada membro paga as suas despesas.",
     },
     {
-      question: "Posso levar quem quiser para os eventos?",
+      question: "Posso levar quem quiser para os eventos/passeios?",
       answer:
         "Sim claro, desde que o número de pessoas seja previamente notificado.",
     },
@@ -126,7 +126,7 @@ export const DATA = {
       "Carros por restaurar ou ainda por arranjar ou reparar não podem pertencer ao clube.",
     },
     {
-      question: "Os eventos são todos em Portugal?",
+      question: "Os eventos/passeios são todos em Portugal?",
       answer:
       "Não, alguns eventos serão no Norte de Espanha em pareceria com outros clubes de mustangs",
     },

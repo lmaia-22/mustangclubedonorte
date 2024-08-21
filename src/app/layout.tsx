@@ -10,6 +10,7 @@ import FullScreenImage from "@/components/firstRender";
 import Footer from "@/components/footer";
 import FullscreenVideo from "@/components/video";
 import Head from 'next/head';
+import ScrollLogo from "@/components/logo_on_top_right";
 import CarScroller from "@/components/car";
 
 const fontSans = FontSans({
@@ -72,6 +73,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <ScrollLogo logoSrc="/logo_no_bk.png" altText="Small Logo" />
         <FullScreenImage imageUrl={DATA.firstRenderUrl} />
         <FullscreenVideo
         videoSrc="/mustang.mp4"

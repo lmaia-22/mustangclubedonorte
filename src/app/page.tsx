@@ -6,14 +6,13 @@ import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { OrbitingMetrics } from "@/components/orbiting_metrics";
 import { ResumeCard } from "@/components/resume-card";
 import { TeamMemberCard } from "@/components/team-card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Markdown from "react-markdown";
 import { MarqueeDemo } from "@/components/portfolio";
 import { ProfileForm } from "@/components/contact";
 
-const BLUR_FADE_DELAY = 0.9;
+const BLUR_FADE_DELAY = 0.0;
 
 export default function Page() {
   return (
@@ -21,16 +20,10 @@ export default function Page() {
       <section id="hero">
         <div className="mx-auto w-full space-y-8">
           <div className="flex flex-col md:flex-row md:gap-2 justify-between items-center">
-            <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="w-36 h-36 md:w-44 md:h-44 mb-4 md:mb-0">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
-            </BlurFade>
             <div className="flex flex-col flex-1 space-y-1.5 items-center justify-center md:text-left">
               <BlurFadeText
                 delay={BLUR_FADE_DELAY}
-                className="text-3xl font-bold tracking-tighter text-center sm:text-5xl xl:text-6xl/none"
+                className="text-3xl font-bold tracking-tighter text-center sm:text-5xl xl:text-6xl/none mb-4"
                 yOffset={8}
                 text={`${DATA.name}`} 
               />
@@ -200,7 +193,7 @@ export default function Page() {
                 </div>
               </div>
             </BlurFade>
-            <div className="flex gap-3 s mx-auto">
+            <div className="flex flex-col mx-auto gap-4">
               <BlurFade delay={BLUR_FADE_DELAY * 11}>
                 <MarqueeDemo />
               </BlurFade>
