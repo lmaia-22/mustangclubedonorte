@@ -201,7 +201,9 @@ export default function Page() {
               </div>
             </BlurFade>
             <div className="flex gap-3 s mx-auto">
-              <MarqueeDemo />
+              <BlurFade delay={BLUR_FADE_DELAY * 11}>
+                <MarqueeDemo />
+              </BlurFade>
             </div>
           </div>
         </section>

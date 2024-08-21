@@ -106,7 +106,7 @@ export const DATA = {
         "Sim, se cumprir os requisitos mínimos iremos partilhar o regulamento interno do clube com as devidas regras.",
     },
     {
-      question: "Quantos eventos há por ano?",
+      question: "Quantos eventos/passeios há por ano?",
       answer:
       "No mínimo 12 eventos ao ano."
     },
