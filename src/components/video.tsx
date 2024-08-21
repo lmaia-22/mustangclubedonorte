@@ -100,17 +100,13 @@ const FullscreenVideo = React.forwardRef<HTMLDivElement, FullscreenVideoProps>((
         muted
         loop
       ></video>
-      <div ref={infoTextRef} className="mx-auto py-24 sm:py-34 text-center">
+      <div ref={infoTextRef} className="text-center inset-x-0 bottom-0 absolute">
         <BlurFade delay={BLUR_FADE_DELAY}>
-          <Avatar className="w-22 h-18 mx-auto">
-            <AvatarImage className="mx-auto" alt={DATA.name} src={DATA.avatarUrl} />
-            <AvatarFallback>{DATA.initials}</AvatarFallback>
-          </Avatar>
-        </BlurFade>
-        <div ref={arrowRef} className="mt-8 text-white">
+        <div ref={arrowRef} className="text-white mb-24">
           <p>Desliza para baixo</p>
           &#x2193; {/* Unicode for downward arrow */}
         </div>
+        </BlurFade>
       </div>
     </div>
   );

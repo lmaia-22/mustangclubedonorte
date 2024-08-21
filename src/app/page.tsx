@@ -167,7 +167,7 @@ export default function Page() {
                 </div>
               </div>
             </BlurFade>
-            <div className="flex flex-col-2  items-center justify-center mx-auto gap-4 mt-4">
+            <div className="flex items-center justify-center mx-auto gap-4 mt-4">
               {DATA.team.map((team, id) => (
                 <BlurFade key={id+1} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
                   <TeamMemberCard
