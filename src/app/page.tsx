@@ -13,7 +13,7 @@ import Markdown from "react-markdown";
 import { MarqueeDemo } from "@/components/portfolio";
 import { ProfileForm } from "@/components/contact";
 
-const BLUR_FADE_DELAY = 0.00;
+const BLUR_FADE_DELAY = 0.9;
 
 export default function Page() {
   return (
