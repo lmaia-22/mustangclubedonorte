@@ -16,14 +16,14 @@ const ScrollLogo: React.FC<ScrollLogoProps> = ({ logoSrc, altText }) => {
         gsap.to(logoRef.current, {
           duration: 0.5,
           opacity: 1,
-          y: 0,
+          y: 10,
           ease: "power3.out",
         });
       } else {
         gsap.to(logoRef.current, {
           duration: 0.5,
           opacity: 0,
-          y: -20,
+          y: -10,
           ease: "power3.in",
         });
       }
@@ -39,7 +39,7 @@ const ScrollLogo: React.FC<ScrollLogoProps> = ({ logoSrc, altText }) => {
   return (
     <div
       ref={logoRef}
-      className="fixed top-4 right-4 z-50 opacity-0 transform -translate-y-20"
+      className="fixed top-4 right-4 z-50 opacity-0 transform -translate-y-60 lg:-translate-y-20"
     >
       <img src={logoSrc} alt={altText} className=" w-24 h-20 lg:w-36 lg:h-32" />
     </div>
