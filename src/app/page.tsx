@@ -13,7 +13,7 @@ import Markdown from "react-markdown";
 import { MarqueeDemo } from "@/components/portfolio";
 import { ProfileForm } from "@/components/contact";
 
-const BLUR_FADE_DELAY = 1.00;
+const BLUR_FADE_DELAY = 0.00;
 
 export default function Page() {
   return (
@@ -167,7 +167,7 @@ export default function Page() {
                 </div>
               </div>
             </BlurFade>
-            <div className="flex items-center justify-center mx-auto gap-4 mt-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 mx-auto gap-4 mt-4">
               {DATA.team.map((team, id) => (
                 <BlurFade key={id+1} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
                   <TeamMemberCard
@@ -241,33 +241,40 @@ export default function Page() {
           </div>
         </section>
         <section id="work">
-          <div className="flex min-h-0 flex-col gap-y-3">
-            <BlurFade delay={BLUR_FADE_DELAY * 5}>
-              <div className="flex flex-col items-center justify-center space-y-4 text-center mb-4">
+          <div className="space-y-12 w-full py-12">
+            <BlurFade delay={BLUR_FADE_DELAY * 13}>
+              <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
                   <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                    FAQ
+                  FAQ
                   </div>
                   <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                    Questões mais frequentes.
+                  Questões mais frequentes
                   </h2>
                   <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    Como tirar as dúvidas de forma rápida.
+                  Como tirar as dúvidas de forma rápida.
                   </p>
                 </div>
               </div>
             </BlurFade>
-            {DATA.faq.map((work, id) => (
-              <BlurFade
-                key={work.question}
-                delay={BLUR_FADE_DELAY * 6 + id * 0.05}
-              >
-                <ResumeCard
-                  key={work.question}
-                  title={work.question}
-                  description={work.answer} />
-              </BlurFade>
-            ))}
+            <div className="container mx-auto px-4">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {DATA.faq.map((work, id) => (
+                  <BlurFade
+                    key={work.question}
+                    delay={BLUR_FADE_DELAY * 6 + id * 0.05}
+                  >
+                    <div className="h-full flex">
+                      <ResumeCard
+                        key={work.question}
+                        title={work.question}
+                        description={work.answer}
+                      />
+                    </div>
+                  </BlurFade>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
         <section id="contact">

@@ -1,7 +1,5 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardHeader } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
@@ -30,40 +28,37 @@ export const ResumeCard = ({
   };
 
   return (
-    <Link
-      href={"#"}
-      className="block cursor-pointer"
-      onClick={handleClick}
-    >
-      <Card className="flex">
-        <div className="flex-grow items-center flex-col group">
+    <Link href="#" className="block cursor-pointer" onClick={handleClick}>
+      <Card className="h-full flex flex-col overflow-hidden rounded-lg shadow-lg transition-transform transform hover:scale-105">
+        <div className="flex-grow p-4">
           <CardHeader>
-            <div className="flex items-center justify-between gap-x-2 text-base">
-              <h3 className="inline-flex items-center justify-center font-semibold leading-none text-xs sm:text-base">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-semibold sm:text-base">
                 {title}
                 <ChevronRightIcon
                   className={cn(
-                    "size-4 translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100",
+                    "ml-2 w-5 h-5 transition-transform duration-300",
                     isExpanded ? "rotate-90" : "rotate-0"
                   )}
                 />
               </h3>
             </div>
-            {subtitle && <div className="font-sans text-xs">{subtitle}</div>}
+            {subtitle && (
+              <div className="text-sm text-gray-500">{subtitle}</div>
+            )}
           </CardHeader>
           {description && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{
                 opacity: isExpanded ? 1 : 0,
-
                 height: isExpanded ? "auto" : 0,
               }}
               transition={{
-                duration: 0.7,
+                duration: 0.5,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="mt-2 text-xs sm:text-sm"
+              className="mt-4 text-sm text-gray-700"
             >
               {description}
             </motion.div>

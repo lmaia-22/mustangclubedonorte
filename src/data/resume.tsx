@@ -91,7 +91,7 @@ export const DATA = {
         "Basta preenhcer o formulário no fim da página e desde que cumpra os requisitos entramos em contacto consigo.",
     },
     {
-      question: "Quais são as condições necessárias para pertencer ao clube?",
+      question: "Quais são as requisitos para pertencer ao clube?",
       answer:
         "Ser o propietário de um mustang em condições de circular na estrada e auto-estrada com o devido seguro e viver no Norte de Portugal.",
     },
@@ -103,7 +103,7 @@ export const DATA = {
     {
       question: "Há regras do clube?",
       answer:
-        "Sim, se cumprir os requisitos depois partilhamos o regulamento interno do clube.",
+        "Sim, se cumprir os requisitos mínimos iremos partilhar o regulamento interno do clube com as devidas regras.",
     },
     {
       question: "Quantos eventos há por ano?",
@@ -124,6 +124,11 @@ export const DATA = {
       question: "Existe alguma restrição?",
       answer:
       "Carros por restaurar ou ainda por arranjar ou reparar não podem pertencer ao clube.",
+    },
+    {
+      question: "Os eventos são todos em Portugal?",
+      answer:
+      "Não, alguns eventos serão no Norte de Espanha em pareceria com outros clubes de mustangs",
     },
   ],
   metrics:"Os nosso números que nos orgulhamos, e que continuam a crescer.",
