@@ -60,7 +60,7 @@ export default async function Blog({
   }
 
   return (
-    <section id='blog'>
+    <section id='blog' className='text-center'>
       <script
         type='application/ld+json'
         suppressHydrationWarning
@@ -83,10 +83,10 @@ export default async function Blog({
           }),
         }}
       />
-      <h1 className='title max-w-[650px] text-2xl font-medium tracking-tighter'>
+      <h1 className='title max-w-[650px] text-2xl font-medium tracking-tighter m'>
         {post.metadata.title}
       </h1>
-      <div className='mb-8 mt-2 flex max-w-[650px] items-center justify-between text-sm'>
+      <div className='mb-8 mt-2 flex max-w-[650px] items-center justify-between text-sm text-center'>
         <Suspense fallback={<p className='h-5' />}>
           <p className='text-sm text-neutral-600 dark:text-neutral-400'>
             {formatDate(post.metadata.publishedAt)}

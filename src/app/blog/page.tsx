@@ -45,7 +45,7 @@ export default async function BlogPage() {
             .map((post, id) => (
               <BlurFade delay={BLUR_FADE_DELAY * 2 + id * 0.05} key={post.slug}>
                 <Link className='space-y-1' href={`/blog/${post.slug}`}>
-                  <div className='flex w-full flex-col'>
+                  <div className='flex w-full flex-col mx-auto'>
                     <p className='tracking-tight'>{post.metadata.title}</p>
                     <p className='h-6 text-xs text-muted-foreground'>
                       {post.metadata.publishedAt}
