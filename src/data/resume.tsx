@@ -3,10 +3,8 @@ import { HomeIcon, NotebookIcon } from 'lucide-react';
 
 export const DATA = {
   name: 'Mustang Clube Do Norte',
-  initials: 'DV',
-  url: 'https://dillion.io',
-  location: 'San Francisco, CA',
-  locationLink: 'https://www.google.com/maps/place/sanfrancisco',
+  initials: 'MCdN',
+  url: 'https://mustangclubedonorte.vercel.app',
   description:
     '		Somos uma comunidade vibrante de aficionados por um dos ícones mais emblemáticos do mundo automobilístico: o Ford Mustang. Desde o ronco inconfundível do motor até às linhas clássicas que definem seu design, cada detalhe dos Mustangs desperta uma paixão que decidimos celebrar juntos.',
   summary:
@@ -166,7 +164,7 @@ export const DATA = {
       image: '/portfolio/portfolio-14.jpg',
       links: [
         {
-          title: 'Devpost',
+          title: 'Website',
           icon: <Icons.globe className='h-4 w-4' />,
           href: 'https://www.b5oliveira.pt/carsncans',
         },
@@ -181,7 +179,7 @@ export const DATA = {
       image: '/portfolio/portfolio-21.jpg',
       links: [
         {
-          title: 'Devpost',
+          title: 'Website',
           icon: <Icons.globe className='h-4 w-4' />,
           href: 'https://racingfest.pt/',
         },
