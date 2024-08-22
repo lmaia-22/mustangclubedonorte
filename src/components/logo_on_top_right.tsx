@@ -1,6 +1,6 @@
-"use client";
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+'use client';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 
 interface ScrollLogoProps {
   logoSrc: string;
@@ -17,31 +17,31 @@ const ScrollLogo: React.FC<ScrollLogoProps> = ({ logoSrc, altText }) => {
           duration: 0.5,
           opacity: 1,
           y: 10,
-          ease: "power3.out",
+          ease: 'power3.out',
         });
       } else {
         gsap.to(logoRef.current, {
           duration: 0.5,
           opacity: 0,
           y: -10,
-          ease: "power3.in",
+          ease: 'power3.in',
         });
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
     <div
       ref={logoRef}
-      className="fixed top-4 right-4 z-50 opacity-0 transform -translate-y-60 lg:-translate-y-20"
+      className='fixed right-4 top-4 z-50 -translate-y-60 transform opacity-0 lg:-translate-y-20'
     >
-      <img src={logoSrc} alt={altText} className=" w-28 h-20 lg:w-40 lg:h-32" />
+      <img src={logoSrc} alt={altText} className='h-20 w-28 lg:h-32 lg:w-40' />
     </div>
   );
 };

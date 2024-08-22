@@ -1,21 +1,20 @@
-import Navbar from "@/components/navbar";
-import { ThemeProvider } from "@/components/theme-provider";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { DATA } from "@/data/resume";
-import { cn } from "@/lib/utils";
-import type { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
-import "./globals.css";
-import FullScreenImage from "@/components/firstRender";
-import Footer from "@/components/footer";
-import FullscreenVideo from "@/components/video";
+import Navbar from '@/components/navbar';
+import { ThemeProvider } from '@/components/theme-provider';
+import { TooltipProvider } from '@/components/ui/tooltip';
+import { DATA } from '@/data/resume';
+import { cn } from '@/lib/utils';
+import type { Metadata } from 'next';
+import { Inter as FontSans } from 'next/font/google';
+import './globals.css';
+import FullScreenImage from '@/components/firstRender';
+import Footer from '@/components/footer';
+import FullscreenVideo from '@/components/video';
 import Head from 'next/head';
-import ScrollLogo from "@/components/logo_on_top_right";
-import CarScroller from "@/components/car";
+import ScrollLogo from '@/components/logo_on_top_right';
 
 const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
+  subsets: ['latin'],
+  variable: '--font-sans',
 });
 
 export const metadata: Metadata = {
@@ -30,8 +29,8 @@ export const metadata: Metadata = {
     description: DATA.description,
     url: DATA.url,
     siteName: `${DATA.name}`,
-    locale: "en_US",
-    type: "website",
+    locale: 'en_US',
+    type: 'website',
   },
   robots: {
     index: true,
@@ -39,18 +38,18 @@ export const metadata: Metadata = {
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
   twitter: {
     title: `${DATA.name}`,
-    card: "summary_large_image",
+    card: 'summary_large_image',
   },
   verification: {
-    google: "",
-    yandex: "",
+    google: '',
+    yandex: '',
   },
 };
 
@@ -60,40 +59,32 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning>
       <Head>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
-        <link rel="manifest" href="/site.webmanifest"/>
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans scrollbar-hide",
+          'min-h-screen bg-background font-sans scrollbar-hide',
           fontSans.variable
         )}
       >
-        <ScrollLogo logoSrc="/logo_no_bk.png" altText="Small Logo" />
+        <ScrollLogo logoSrc='/logo_no_bk.png' altText='Small Logo' />
         <FullScreenImage imageUrl={DATA.firstRenderUrl} />
-        <FullscreenVideo
-        videoSrc="/mustang.mp4"
-      />
-          {/* <div className="relative h-[200vh]">
-            <div id="line" className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gray-400 h-full"></div>
-              <CarScroller lineId="line" carImageSrc="/logo_no_bk.png" />
-            </div> */}
-        <div className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-5xl mx-auto py-6 sm:py-18 px-6",
-          fontSans.variable
-        )}
+        <FullscreenVideo videoSrc='/mustang.mp4' />
+        <div
+          className={cn(
+            'sm:py-18 mx-auto min-h-screen max-w-5xl bg-background px-6 py-6 font-sans antialiased',
+            fontSans.variable
+          )}
         >
-          <ThemeProvider attribute="class" defaultTheme="dark">
+          <ThemeProvider attribute='class' defaultTheme='dark'>
             <TooltipProvider delayDuration={0}>
               {children}
               <Navbar />
             </TooltipProvider>
-            <Footer/>
-        </ThemeProvider>
+            <Footer />
+          </ThemeProvider>
         </div>
       </body>
     </html>

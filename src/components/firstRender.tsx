@@ -1,4 +1,4 @@
-"use client";
+'use client';
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
@@ -38,16 +38,16 @@ const FullScreenImage: React.FC<FullScreenImageProps> = ({ imageUrl }) => {
         scale: 1.05,
         ease: 'power2.inOut',
       })
-      .to(imageRef.current, {
-        duration: 0.3,
-        scale: 0.95,
-        ease: 'power2.inOut',
-      })
-      .to(imageRef.current, {
-        duration: 0.2,
-        scale: 1.02,
-        ease: 'power2.inOut',
-      });
+        .to(imageRef.current, {
+          duration: 0.3,
+          scale: 0.95,
+          ease: 'power2.inOut',
+        })
+        .to(imageRef.current, {
+          duration: 0.2,
+          scale: 1.02,
+          ease: 'power2.inOut',
+        });
 
       // Take-off effect
       tl.to(imageRef.current, {
@@ -65,12 +65,17 @@ const FullScreenImage: React.FC<FullScreenImageProps> = ({ imageUrl }) => {
     <div ref={imageRef}>
       <Image
         priority={true}
-        alt="Full"
+        alt='Full'
         src={imageUrl}
         width={0}
         height={0}
-        style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: 'inherit' }}
-        sizes="100vw"
+        style={{
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          borderRadius: 'inherit',
+        }}
+        sizes='100vw'
       />
     </div>
   );
