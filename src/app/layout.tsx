@@ -9,7 +9,6 @@ import './globals.css';
 import FullScreenImage from '@/components/firstRender';
 import Footer from '@/components/footer';
 import FullscreenVideo from '@/components/video';
-import Head from 'next/head';
 import ScrollLogo from '@/components/logo_on_top_right';
 
 const fontSans = FontSans({
@@ -29,7 +28,7 @@ export const metadata: Metadata = {
     description: DATA.description,
     url: DATA.url,
     siteName: `${DATA.name}`,
-    locale: 'en_US',
+    locale: 'pt_PT',
     type: 'website',
   },
   robots: {
@@ -51,6 +50,14 @@ export const metadata: Metadata = {
     google: '',
     yandex: '',
   },
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+    other: [
+      { rel: 'icon', url: '/favicon-32x32.png', sizes: '32x32' },
+      { rel: 'icon', url: '/favicon-16x16.png', sizes: '16x16' },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -60,9 +67,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' suppressHydrationWarning>
-      <Head>
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
       <body
         className={cn(
           'min-h-screen bg-background font-sans scrollbar-hide',
