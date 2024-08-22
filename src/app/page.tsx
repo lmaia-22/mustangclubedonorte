@@ -79,19 +79,19 @@ export default function Page() {
               </div>
             </div>
           </BlurFade>
-          <ul className="list-inside list-square mt-4">
+          <ul className="list-inside list-square mt-4 flex flex-col items-center">
             <BlurFade delay={BLUR_FADE_DELAY * 4}>
-              <li key="mission1" className="max-w-full text-pretty font-sans text-base text-muted-foreground">
+              <li key="mission1" className="w-full max-w-[500px] text-pretty font-sans text-base text-muted-foreground text-center">
                 {DATA.mission1}
               </li>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 4}>
-              <li key="mission2" className="max-w-full text-pretty font-sans text-base text-muted-foreground">
+              <li key="mission2" className="w-full max-w-[500px] text-pretty font-sans text-base text-muted-foreground text-center">
                 {DATA.mission2}
               </li>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 4}>
-              <li key="mission3" className="max-w-full text-pretty font-sans text-base text-muted-foreground">
+              <li key="mission3" className="w-full max-w-[500px] text-pretty font-sans text-base text-muted-foreground text-center">
                 {DATA.mission3}
               </li>
             </BlurFade>
@@ -177,7 +177,7 @@ export default function Page() {
           </div>
         </section>
         <section id="projects">
-          <div className="space-y-12 w-full py-12">
+          <div className="space-y-12 w-full py-4">
             <BlurFade delay={BLUR_FADE_DELAY * 11}>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
@@ -200,8 +200,8 @@ export default function Page() {
             </div>
           </div>
         </section>
-        <section id="hackathons">
-          <div className="space-y-12 w-full py-12">
+        <section id="eventos">
+          <div className="space-y-12 w-full py-4">
             <BlurFade delay={BLUR_FADE_DELAY * 13}>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
@@ -237,8 +237,8 @@ export default function Page() {
             </BlurFade>
           </div>
         </section>
-        <section id="work">
-          <div className="space-y-12 w-full py-12">
+        <section id="faq">
+          <div className="space-y-12 w-full py-4">
             <BlurFade delay={BLUR_FADE_DELAY * 13}>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
@@ -275,7 +275,7 @@ export default function Page() {
           </div>
         </section>
         <section id="contact">
-          <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
+          <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-4">
             <BlurFade delay={BLUR_FADE_DELAY * 16}>
               <div className="space-y-3">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">

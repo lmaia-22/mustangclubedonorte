@@ -18,8 +18,8 @@ export default function footer(){
                         <Image
                             src="/logo_no_bk.png"
                             width={100}
-                            height={100}
-                            className="h-8 w-8 text-primary"
+                            height={80}
+                            className="h-8 w-12 text-primary"
                             alt="Logo"
                         />
                         <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Mustang Clube do Norte</span>
@@ -31,13 +31,13 @@ export default function footer(){
                             <h2 className="mb-6 text-sm tracking-tighter font-medium text-gray-900 uppercase dark:text-white">Website</h2>
                             <ul className="gap-2 grid">
                                 <li key="sobre">
-                                    <a className="cursor-pointer text-gray-400 hover:text-gray-200 duration-200 font-[450] text-sm" href="/">Sobre</a>
+                                    <a className="cursor-pointer text-gray-400 hover:text-gray-200 duration-200 font-[450] text-sm" href="#about">Sobre</a>
                                 </li>
                                 <li key="eventos">
-                                    <a className="cursor-pointer text-gray-400 hover:text-gray-200 duration-200 font-[450] text-sm" href="/pricing">Eventos</a>
+                                    <a className="cursor-pointer text-gray-400 hover:text-gray-200 duration-200 font-[450] text-sm" href="#eventos">Eventos</a>
                                 </li>
                                 <li key="faq">
-                                    <a className="cursor-pointer text-gray-400 hover:text-gray-200 duration-200 font-[450] text-sm" href="/faq">FAQ</a>
+                                    <a className="cursor-pointer text-gray-400 hover:text-gray-200 duration-200 font-[450] text-sm" href="#faq">FAQ</a>
                                 </li>
                             </ul>
                         </div>

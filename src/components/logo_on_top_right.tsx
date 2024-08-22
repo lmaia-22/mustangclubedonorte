@@ -41,7 +41,7 @@ const ScrollLogo: React.FC<ScrollLogoProps> = ({ logoSrc, altText }) => {
       ref={logoRef}
       className="fixed top-4 right-4 z-50 opacity-0 transform -translate-y-60 lg:-translate-y-20"
     >
-      <img src={logoSrc} alt={altText} className=" w-24 h-20 lg:w-36 lg:h-32" />
+      <img src={logoSrc} alt={altText} className=" w-28 h-20 lg:w-40 lg:h-32" />
     </div>
   );
 };

@@ -112,7 +112,7 @@ const ReviewCard = ({ img }: { img: string }) => {
 export function MarqueeDemo() {
   return (
     <div className="flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow">
-      <BorderBeam />
+    <BorderBeam size={250} duration={12} delay={9}/>
       <Marquee pauseOnHover className="[--duration:20s]">
         {firstRow.map((review, index) => (
           <ReviewCard key={index} img={review.img} />

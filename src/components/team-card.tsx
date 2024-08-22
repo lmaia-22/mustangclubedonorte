@@ -26,8 +26,8 @@ export function TeamMemberCard({
   className,
 }: TeamMemberCardProps) {
   return (
-    <div>
-      <BorderBeam />
+    <div className="border rounded-lg">
+      <BorderBeam size={250} duration={12} delay={9}/>
       <Card className={cn("flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full", className)}>
         <div className="flex flex-col items-center justify-center p-4">
           <Image src={picture} alt={name} width={150} height={150} className="object-cover object-center w-auto h-auto" />
