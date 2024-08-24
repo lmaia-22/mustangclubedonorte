@@ -1,4 +1,4 @@
-'use client'; // Keep this directive to make this a Client Component
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import Navbar from '@/components/navbar';
@@ -14,8 +14,8 @@ import Footer from '@/components/footer';
 import FullscreenVideo from '@/components/video';
 import ScrollLogo from '@/components/logo_on_top_right';
 import { Toaster } from "@/components/ui/toaster";
-import { useIsMobile } from '@/hooks/useIsMobile'; // Correctly import the custom hook
-import Loader from '@/components/loader'; // Import the Loader component
+import { useIsMobile } from '@/hooks/useIsMobile';
+import Loader from '@/components/loader';
 import { delay } from 'framer-motion';
 
 const fontSans = FontSans({
@@ -28,28 +28,26 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const [isLoading, setIsLoading] = useState(true); // Loading state
-  const isMobile = useIsMobile(); // Use the custom hook to check if it's a mobile screen
+  const [isLoading, setIsLoading] = useState(true);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const imageUrl = isMobile ? DATA.firstRenderUrlMobile : DATA.firstRenderUrl;
     const img = new Image();
     img.src = imageUrl;
 
-    // Once the image is loaded, set loading to false
     img.onload = () => {
       setIsLoading(false);
     };
   }, [isMobile]);
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning className='scrollbar-hide'>
       <body
         className={cn(
-          'min-h-screen bg-background font-sans scrollbar-hide',
+          'min-h-screen bg-background font-sans',
           fontSans.variable
         )}
       >
-        {/* Only conditionally render the content within the body */}
         {isLoading ? (
           <Loader />
         ) : (
