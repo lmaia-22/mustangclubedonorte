@@ -2,9 +2,6 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import BlurFadeText from './magicui/blur-fade-text';
-import { DATA } from '@/data/resume';
-import { Avatar, AvatarImage, AvatarFallback } from '@radix-ui/react-avatar';
 import BlurFade from './magicui/blur-fade';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -57,56 +54,57 @@ const FullscreenVideo = React.forwardRef<HTMLDivElement, FullscreenVideoProps>(
           }
         );
 
-        // Animate on scroll
+        // Adjust ScrollTrigger settings to handle scrolling correctly
         ScrollTrigger.create({
           trigger: videoElement,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-          onEnter: () => {
+          start: 'top top', // Trigger animation when top of the video hits the top of the viewport
+          end: 'bottom top', // End animation when bottom of the video hits the top of the viewport
+          scrub: true, // Allows smooth scrubbing
+          onUpdate: (self) => {
+            const progress = self.progress; // Get current scroll progress
+
+            // Scale and fade video based on scroll progress
             gsap.to(videoElement, {
-              scale: 0.8,
-              opacity: 0.5,
+              scale: 1 - progress * 0.2, // Scale down slightly on scroll
+              opacity: 1 - progress * 0.5, // Fade out slightly on scroll
+              overwrite: 'auto', // Prevents conflicting animations
             });
+
+            // Move and fade info text based on scroll progress
             gsap.to(infoTextElement, {
-              y: 100,
-              opacity: 0,
-            });
-          },
-          onLeaveBack: () => {
-            gsap.to(videoElement, {
-              scale: 1,
-              opacity: 1,
-            });
-            gsap.to(infoTextElement, {
-              y: 0,
-              opacity: 1,
+              y: progress * 100, // Move down slightly on scroll
+              opacity: 1 - progress, // Fade out on scroll
+              overwrite: 'auto', // Prevents conflicting animations
             });
           },
         });
-      }
 
-      return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      };
+        // Clean up GSAP animations and ScrollTrigger instances on component unmount
+        return () => {
+          ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+          gsap.killTweensOf(videoElement);
+          gsap.killTweensOf(infoTextElement);
+          gsap.killTweensOf(arrowElement);
+        };
+      }
     }, []);
 
     return (
-      <div ref={ref} className='h-screen w-screen '>
+      <div ref={ref} className="h-screen w-screen relative">
         <video
           ref={videoRef}
           src={videoSrc}
-          className='absolute left-0 top-0 h-full w-full scale-110 object-cover opacity-0'
+          className="absolute left-0 top-0 h-full w-full scale-110 object-cover opacity-0"
           autoPlay
           muted
           loop
         ></video>
         <div
           ref={infoTextRef}
-          className='absolute inset-x-0 bottom-0 text-center'
+          className="absolute inset-x-0 bottom-0 text-center"
         >
           <BlurFade delay={BLUR_FADE_DELAY}>
-            <div ref={arrowRef} className='mb-24 text-white'>
+            <div ref={arrowRef} className="mb-24 text-white">
               <p>Desliza para baixo</p>
               &#x2193; {/* Unicode for downward arrow */}
             </div>
