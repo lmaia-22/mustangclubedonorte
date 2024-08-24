@@ -157,13 +157,13 @@ export function ProfileForm() {
   }
 
   function onSubmit(data: z.infer<typeof formSchema>) {
-    sendEmail(data, form.reset); // Pass the reset function to clear the form after submission
+    sendEmail(data, form.reset);
   }
-  const { toast } = useToast()
+
+  const { toast } = useToast();
+
   return (
-    
     <div className='mx-auto max-w-md rounded-lg bg-white p-8 shadow-md'>
-      <BorderBeam />
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className='mt-5 space-y-8'>
           <FormField

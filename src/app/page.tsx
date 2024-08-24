@@ -11,6 +11,7 @@ import { DATA } from '@/data/resume';
 import Markdown from 'react-markdown';
 import { MarqueeDemo } from '@/components/portfolio';
 import { ProfileForm } from '@/components/contact';
+import { BorderBeam } from '@/components/magicui/border-beam';
 
 const BLUR_FADE_DELAY = 0.0;
 
@@ -288,7 +289,7 @@ export default function Page() {
         </div>
       </section>
       <section id='contact'>
-        <div className='grid w-full items-center justify-center gap-4 px-4 py-4 text-center md:px-6'>
+        <div className='relative w-full text-center'>
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className='space-y-3'>
               <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background'>
@@ -301,7 +302,10 @@ export default function Page() {
                 Quer entrar para o clube? Quer fazer alguma parceria? Quer saber
                 mais sobre o Clube?
               </p>
+              <div className='relative mx-auto max-w-md rounded-lg'>
+                <BorderBeam />
               <ProfileForm />
+              </div>
             </div>
           </BlurFade>
         </div>

@@ -124,8 +124,8 @@ export default function footer() {
           </div>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY}>
-          <div className='flex flex-col items-center gap-2 rounded-md border-neutral-700/20 px-8 py-4 sm:flex-row sm:justify-between'>
-            <div className='flex space-x-5 sm:mt-0 sm:justify-center'>
+          <div className='flex flex-col items-center gap-2 rounded-md border-neutral-700/20 px-8 sm:flex-row sm:justify-between mb-6'>
+            <div className='space-x-5 sm:mt-0 sm:justify-center'>
               {Object.entries(DATA.contact.social)
                 .filter(([_, social]) => social.navbar)
                 .map(([name, social]) => (
@@ -142,7 +142,7 @@ export default function footer() {
                   </Link>
                 ))}
             </div>
-            <span className='mb-8 text-center text-sm text-gray-500 dark:text-gray-400'>
+            <span className='text-center text-sm text-gray-500 dark:text-gray-400'>
               Copyright © 2024
               <a className='cursor-pointer' href='/'>
                 {' '}

@@ -10,7 +10,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 export function OrbitingMetrics() {
   return (
-    <div className='relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-background'>
+    <div className='relative flex h-[500px] w-full flex-col items-center justify-center rounded-lg bg-background'>
       <span className='pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-black'>
         <Avatar className='h-24 w-32'>
           <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />

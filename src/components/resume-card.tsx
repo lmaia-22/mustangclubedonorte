@@ -29,7 +29,7 @@ export const ResumeCard = ({
 
   return (
     <Link href='#' className='block cursor-pointer' onClick={handleClick}>
-      <Card className='flex h-full transform flex-col overflow-hidden rounded-lg shadow-lg transition-transform hover:scale-105'>
+      <Card className='flex h-full transform flex-col  rounded-lg shadow-lg transition-transform hover:scale-105'>
         <div className='flex-grow p-4'>
           <CardHeader>
             <div className='flex items-center justify-between'>

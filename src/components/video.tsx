@@ -92,7 +92,7 @@ const FullscreenVideo = React.forwardRef<HTMLDivElement, FullscreenVideoProps>(
     }, []);
 
     return (
-      <div ref={ref} className='h-screen w-screen overflow-hidden'>
+      <div ref={ref} className='h-screen w-screen '>
         <video
           ref={videoRef}
           src={videoSrc}
