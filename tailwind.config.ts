@@ -6,6 +6,7 @@ const config = {
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
+    './hooks/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './src/**/*.{ts,tsx}',
   ],
@@ -94,6 +95,7 @@ const config = {
       orbit: 'orbit calc(var(--duration)*1s) linear infinite',
       marquee: 'marquee var(--duration) linear infinite',
       'marquee-vertical': 'marquee-vertical var(--duration) linear infinite',
+      ripple: "ripple var(--duration,2s) ease calc(var(--i, 0)*.2s) infinite",
     },
     keyframes: {
       orbit: {
@@ -113,6 +115,14 @@ const config = {
       'marquee-vertical': {
         from: { transform: 'translateY(0)' },
         to: { transform: 'translateY(calc(-100% - var(--gap)))' },
+      },
+      ripple: {
+        "0%, 100%": {
+          transform: "translate(-50%, -50%) scale(1)",
+        },
+        "50%": {
+          transform: "translate(-50%, -50%) scale(0.9)",
+        },
       },
     },
   },

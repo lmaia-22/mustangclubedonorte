@@ -19,7 +19,8 @@ export const DATA = {
   mission2: 'Proporcionar momentos de pura adrenalina e convívio.',
   mission3:
     'Oferecer uma plataforma para compartilhar conhecimentos e experiências.',
-  firstRenderUrl: '/bk.jpeg',
+  firstRenderUrl: '/bk_bigger.png',
+  firstRenderUrlMobile: '/bk_mobile.png',
   avatarUrl: '/logo_no_bk.png',
   skills: [
     'Viana Do Castelo',

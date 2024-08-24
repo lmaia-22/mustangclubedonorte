@@ -72,7 +72,7 @@ const FullScreenImage: React.FC<FullScreenImageProps> = ({ imageUrl }) => {
         style={{
           width: '100%',
           height: '100%',
-          objectFit: 'cover',
+          objectFit: 'fill',
           borderRadius: 'inherit',
         }}
         sizes='100vw'
