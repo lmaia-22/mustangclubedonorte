@@ -43,7 +43,7 @@ export function ProjectCard({
   return (
     <Card
       className={
-        'flex h-full flex-col  border transition-all duration-300 ease-out hover:shadow-lg'
+        'flex h-full flex-col border transition-all duration-300 ease-out hover:shadow-lg'
       }
     >
       <Link
@@ -66,7 +66,7 @@ export function ProjectCard({
             alt={title}
             width={500}
             height={300}
-            className='h-40 w-full  object-cover object-top'
+            className='h-40 w-full object-cover object-top'
           />
         )}
       </Link>

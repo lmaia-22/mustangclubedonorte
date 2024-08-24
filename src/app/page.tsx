@@ -304,7 +304,7 @@ export default function Page() {
               </p>
               <div className='relative mx-auto max-w-md rounded-lg'>
                 <BorderBeam />
-              <ProfileForm />
+                <ProfileForm />
               </div>
             </div>
           </BlurFade>

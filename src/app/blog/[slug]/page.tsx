@@ -94,7 +94,7 @@ export default async function Blog({
         </Suspense>
       </div>
       <article
-        className='prose dark:prose-invert max-w-[650px] mb-8'
+        className='prose mb-8 max-w-[650px] dark:prose-invert'
         dangerouslySetInnerHTML={{ __html: post.source }}
       ></article>
       {post.metadata.image && (
@@ -102,7 +102,7 @@ export default async function Blog({
           <img
             src={`${DATA.url}${post.metadata.image}`}
             alt={post.metadata.title}
-            className='max-w-[650px] mx-auto'
+            className='mx-auto max-w-[650px]'
           />
         </div>
       )}

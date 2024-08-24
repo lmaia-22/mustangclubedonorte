@@ -83,8 +83,8 @@
 
   /* Hide scrollbar for Internet Explorer, Edge, and Firefox */
   .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE 10+ */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+    scrollbar-width: none; /* Firefox */
   }
 }
 
@@ -162,6 +162,6 @@ code[data-line-numbers-max-digits='3'] > [data-line]::before {
 }
 
 .scrollbar-hide {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

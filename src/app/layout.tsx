@@ -13,7 +13,7 @@ import FullScreenImage from '@/components/firstRender';
 import Footer from '@/components/footer';
 import FullscreenVideo from '@/components/video';
 import ScrollLogo from '@/components/logo_on_top_right';
-import { Toaster } from "@/components/ui/toaster";
+import { Toaster } from '@/components/ui/toaster';
 import { useIsMobile } from '@/hooks/useIsMobile';
 import Loader from '@/components/loader';
 import { delay } from 'framer-motion';
@@ -53,7 +53,11 @@ export default function RootLayout({
         ) : (
           <>
             <ScrollLogo logoSrc='/logo_no_bk.png' altText='Small Logo' />
-            <FullScreenImage imageUrl={isMobile ? DATA.firstRenderUrlMobile : DATA.firstRenderUrl} />
+            <FullScreenImage
+              imageUrl={
+                isMobile ? DATA.firstRenderUrlMobile : DATA.firstRenderUrl
+              }
+            />
             <FullscreenVideo videoSrc='/mustang.mp4' />
             <div
               className={cn(

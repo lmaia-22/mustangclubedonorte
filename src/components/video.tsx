@@ -90,21 +90,21 @@ const FullscreenVideo = React.forwardRef<HTMLDivElement, FullscreenVideoProps>(
     }, []);
 
     return (
-      <div ref={ref} className="h-screen w-screen relative">
+      <div ref={ref} className='relative h-screen w-screen'>
         <video
           ref={videoRef}
           src={videoSrc}
-          className="absolute left-0 top-0 h-full w-full scale-110 object-cover opacity-0"
+          className='absolute left-0 top-0 h-full w-full scale-110 object-cover opacity-0'
           autoPlay
           muted
           loop
         ></video>
         <div
           ref={infoTextRef}
-          className="absolute inset-x-0 bottom-0 text-center"
+          className='absolute inset-x-0 bottom-0 text-center'
         >
           <BlurFade delay={BLUR_FADE_DELAY}>
-            <div ref={arrowRef} className="mb-24 text-white">
+            <div ref={arrowRef} className='mb-24 text-white'>
               <p>Desliza para baixo</p>
               &#x2193; {/* Unicode for downward arrow */}
             </div>

@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { useState } from 'react';  // Import useState to manage loading state
+import { useState } from 'react'; // Import useState to manage loading state
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
@@ -29,8 +29,8 @@ import {
 } from '@/components/ui/popover';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { ToastAction } from "@/components/ui/toast"
-import { useToast } from "@/components/ui/use-toast"
+import { ToastAction } from '@/components/ui/toast';
+import { useToast } from '@/components/ui/use-toast';
 import { BorderBeam } from './magicui/border-beam';
 import { CoolMode } from './magicui/cool-mode';
 import emailjs from 'emailjs-com';
@@ -84,18 +84,22 @@ export function ProfileForm() {
     },
   });
 
-  const [isLoading, setIsLoading] = useState(false);  // State to manage loading
+  const [isLoading, setIsLoading] = useState(false); // State to manage loading
 
   const allFieldsFilled = () => {
-    const { username, email, message, typeOfContact, city, licensePlate } = form.watch();
+    const { username, email, message, typeOfContact, city, licensePlate } =
+      form.watch();
     if (typeOfContact === 'participate') {
       return username && email && message && city && licensePlate;
     }
     return username && email && message && typeOfContact;
   };
 
-  async function sendEmail(data: z.infer<typeof formSchema>, resetForm: () => void) {
-    setIsLoading(true);  // Set loading state to true when email is being sent
+  async function sendEmail(
+    data: z.infer<typeof formSchema>,
+    resetForm: () => void
+  ) {
+    setIsLoading(true); // Set loading state to true when email is being sent
     let emailBody = `
       <p>Olá ${data.username},</p>
       <p>O ${data.username} mandou mensagem pela seguinte razão: ${data.typeOfContact}</p>
@@ -133,7 +137,8 @@ export function ProfileForm() {
       if (response.status === 200) {
         toast({
           title: 'Email enviado com sucesso!',
-          description: 'Sua mensagem foi enviada. Entraremos em contato em breve.',
+          description:
+            'Sua mensagem foi enviada. Entraremos em contato em breve.',
           duration: 5000, // 5 seconds duration for the toast to disappear
         });
 
@@ -142,17 +147,17 @@ export function ProfileForm() {
       } else {
         throw new Error('Unexpected response status');
       }
-
     } catch (error) {
       console.error('Falha ao enviar o email:', error);
       toast({
         title: 'Falha ao enviar o email',
-        description: 'Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.',
-        variant: "destructive", // Use the correct variant if required by shadcn/ui
+        description:
+          'Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.',
+        variant: 'destructive', // Use the correct variant if required by shadcn/ui
         duration: 5000, // 5 seconds duration for the toast to disappear
       });
     } finally {
-      setIsLoading(false);  // Reset loading state when email is done sending
+      setIsLoading(false); // Reset loading state when email is done sending
     }
   }
 
@@ -181,7 +186,7 @@ export function ProfileForm() {
                         variant='outline'
                         role='combobox'
                         className={cn(
-                          'w-[100%] justify-between dark:bg-foreground text-black',
+                          'w-[100%] justify-between text-black dark:bg-foreground',
                           !field.value
                         )}
                       >
@@ -202,7 +207,9 @@ export function ProfileForm() {
                         className='h-9'
                       />
                       <CommandList>
-                        <CommandEmpty>Nenhuma opção válida encontrada.</CommandEmpty>
+                        <CommandEmpty>
+                          Nenhuma opção válida encontrada.
+                        </CommandEmpty>
                         <CommandGroup>
                           {typeOfContacts.map((typeOfContact) => (
                             <CommandItem
@@ -340,10 +347,10 @@ export function ProfileForm() {
           >
             <Button
               type='submit'
-              className='w-full rounded-md px-4 py-2 font-bold focus:text-gray-200 focus:outline-none focus:ring-2 bg-primary dark:bg-background dark:text-foreground'
+              className='w-full rounded-md bg-primary px-4 py-2 font-bold focus:text-gray-200 focus:outline-none focus:ring-2 dark:bg-background dark:text-foreground'
               disabled={isLoading || !allFieldsFilled()} // Disable button during loading or if fields are not filled
             >
-              {isLoading ? "Sending..." : "Submit"}
+              {isLoading ? 'Sending...' : 'Submit'}
             </Button>
           </CoolMode>
         </form>

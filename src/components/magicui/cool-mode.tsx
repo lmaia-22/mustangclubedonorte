@@ -226,7 +226,11 @@ interface CoolModeProps {
   isActive?: boolean; // New prop to control animation state
 }
 
-export const CoolMode: React.FC<CoolModeProps> = ({ children, options, isActive = true }) => {
+export const CoolMode: React.FC<CoolModeProps> = ({
+  children,
+  options,
+  isActive = true,
+}) => {
   const ref = useRef<HTMLElement>(null);
   const cleanupRef = useRef<() => void | undefined>();
 

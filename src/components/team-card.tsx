@@ -36,7 +36,7 @@ export function TeamMemberCard({
       <BorderBeam size={250} duration={12} delay={9} />
       <Card
         className={cn(
-          'flex h-full flex-col  border transition-all duration-300 ease-out hover:shadow-lg',
+          'flex h-full flex-col border transition-all duration-300 ease-out hover:shadow-lg',
           className
         )}
       >
