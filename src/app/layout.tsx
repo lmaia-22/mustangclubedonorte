@@ -10,6 +10,7 @@ import FullScreenImage from '@/components/firstRender';
 import Footer from '@/components/footer';
 import FullscreenVideo from '@/components/video';
 import ScrollLogo from '@/components/logo_on_top_right';
+import { Toaster } from "@/components/ui/toaster"
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -90,6 +91,7 @@ export default function RootLayout({
             <Footer />
           </ThemeProvider>
         </div>
+        <Toaster />
       </body>
     </html>
   );

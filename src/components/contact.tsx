@@ -1,9 +1,9 @@
 'use client';
-
 import { zodResolver } from '@hookform/resolvers/zod';
 import { CaretSortIcon, CheckIcon } from '@radix-ui/react-icons';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
+import { useState } from 'react';  // Import useState to manage loading state
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
@@ -29,9 +29,11 @@ import {
 } from '@/components/ui/popover';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { toast } from '@/components/ui/use-toast';
+import { ToastAction } from "@/components/ui/toast"
+import { useToast } from "@/components/ui/use-toast"
 import { BorderBeam } from './magicui/border-beam';
 import { CoolMode } from './magicui/cool-mode';
+import emailjs from 'emailjs-com';
 
 const typeOfContacts = [
   { label: 'Dúvidas', value: 'doubt' },
@@ -50,7 +52,7 @@ const formSchema = z
       message: 'Mensagem não pode estar vazia.',
     }),
     typeOfContact: z.string({
-      required_error: 'Por favor escolhe uma das razões de contacto.',
+      required_error: 'Por favor escolha uma das razões de contacto.',
     }),
     city: z.string().optional(),
     picture: z.any().optional(),
@@ -64,7 +66,7 @@ const formSchema = z
       return true;
     },
     {
-      message: 'City and License Plate are required for participation.',
+      message: 'Cidade e Matrícula são necessárias para participação.',
       path: ['city'],
     }
   );
@@ -82,18 +84,84 @@ export function ProfileForm() {
     },
   });
 
-  function onSubmit(data: z.infer<typeof formSchema>) {
-    toast({
-      title: 'You submitted the following values:',
-      description: (
-        <pre className='mt-2 w-[340px] rounded-md bg-slate-950 p-4'>
-          <code className='text-white'>{JSON.stringify(data, null, 2)}</code>
-        </pre>
-      ),
-    });
+  const [isLoading, setIsLoading] = useState(false);  // State to manage loading
+
+  const allFieldsFilled = () => {
+    const { username, email, message, typeOfContact, city, licensePlate } = form.watch();
+    if (typeOfContact === 'participate') {
+      return username && email && message && city && licensePlate;
+    }
+    return username && email && message && typeOfContact;
+  };
+
+  async function sendEmail(data: z.infer<typeof formSchema>, resetForm: () => void) {
+    setIsLoading(true);  // Set loading state to true when email is being sent
+    let emailBody = `
+      <p>Olá ${data.username},</p>
+      <p>O ${data.username} mandou mensagem pela seguinte razão: ${data.typeOfContact}</p>
+      <p>O seu email é o seguinte: ${data.email}</p>
+      <p style="padding: 12px; border-left: 4px solid #d0d0d0; font-style: italic;">
+        ${data.message}
+      </p>
+    `;
+
+    // Conditionally add city and license plate if provided
+    if (data.typeOfContact === 'participate') {
+      emailBody += `
+        <p><strong>Cidade:</strong> ${data.city}</p>
+        <p><strong>Matrícula do Veículo:</strong> ${data.licensePlate}</p>
+      `;
+    }
+
+    // Closing statement
+    emailBody += `
+      <p>Best wishes,<br>EmailJS team</p>
+    `;
+
+    try {
+      const response = await emailjs.send(
+        'service_c30i8fh', // Replace with your EmailJS service ID
+        'template_6gyq1r9', // Replace with your EmailJS template ID
+        {
+          username: data.username,
+          email: data.email,
+          message: emailBody, // Pass the constructed email body here
+        },
+        '10he7_G2aMn2UhVuV' // Replace with your EmailJS user ID (public key)
+      );
+
+      if (response.status === 200) {
+        toast({
+          title: 'Email enviado com sucesso!',
+          description: 'Sua mensagem foi enviada. Entraremos em contato em breve.',
+          duration: 5000, // 5 seconds duration for the toast to disappear
+        });
+
+        // Clear the form after successful submission
+        resetForm();
+      } else {
+        throw new Error('Unexpected response status');
+      }
+
+    } catch (error) {
+      console.error('Falha ao enviar o email:', error);
+      toast({
+        title: 'Falha ao enviar o email',
+        description: 'Ocorreu um erro ao enviar sua mensagem. Tente novamente mais tarde.',
+        variant: "destructive", // Use the correct variant if required by shadcn/ui
+        duration: 5000, // 5 seconds duration for the toast to disappear
+      });
+    } finally {
+      setIsLoading(false);  // Reset loading state when email is done sending
+    }
   }
 
+  function onSubmit(data: z.infer<typeof formSchema>) {
+    sendEmail(data, form.reset); // Pass the reset function to clear the form after submission
+  }
+  const { toast } = useToast()
   return (
+    
     <div className='mx-auto max-w-md rounded-lg bg-white p-8 shadow-md'>
       <BorderBeam />
       <Form {...form}>
@@ -113,8 +181,8 @@ export function ProfileForm() {
                         variant='outline'
                         role='combobox'
                         className={cn(
-                          'w-[100%] justify-between',
-                          !field.value && 'text-muted-foreground'
+                          'w-[100%] justify-between dark:bg-foreground text-black',
+                          !field.value
                         )}
                       >
                         {field.value
@@ -134,7 +202,7 @@ export function ProfileForm() {
                         className='h-9'
                       />
                       <CommandList>
-                        <CommandEmpty>No framework found.</CommandEmpty>
+                        <CommandEmpty>Nenhuma opção válida encontrada.</CommandEmpty>
                         <CommandGroup>
                           {typeOfContacts.map((typeOfContact) => (
                             <CommandItem
@@ -257,7 +325,7 @@ export function ProfileForm() {
                 <FormControl>
                   <Textarea
                     placeholder='Olá, tudo bem?'
-                    className='resize-none bg-background'
+                    className='resize-none text-black'
                     {...field}
                   />
                 </FormControl>
@@ -272,10 +340,10 @@ export function ProfileForm() {
           >
             <Button
               type='submit'
-              className='w-full rounded-md px-4 py-2 font-bold focus:text-gray-200 focus:outline-none focus:ring-2'
+              className='w-full rounded-md px-4 py-2 font-bold focus:text-gray-200 focus:outline-none focus:ring-2 bg-primary dark:bg-background dark:text-foreground'
+              disabled={isLoading || !allFieldsFilled()} // Disable button during loading or if fields are not filled
             >
-              {' '}
-              Submit
+              {isLoading ? "Sending..." : "Submit"}
             </Button>
           </CoolMode>
         </form>

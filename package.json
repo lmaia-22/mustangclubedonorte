@@ -28,6 +28,7 @@
     "class-variance-authority": "^0.7.0",
     "cmdk": "^1.0.0",
     "command": "^0.0.1",
+    "emailjs-com": "^3.2.0",
     "form": "^0.2.4",
     "gray-matter": "^4.0.3",
     "input": "^1.0.1",

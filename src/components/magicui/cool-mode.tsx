@@ -1,4 +1,4 @@
-import React, { ReactNode, RefObject, useEffect, useRef } from 'react';
+import React, { ReactNode, useEffect, useRef } from 'react';
 
 export interface BaseParticle {
   element: HTMLElement | SVGSVGElement;
@@ -223,16 +223,28 @@ const applyParticleEffect = (
 interface CoolModeProps {
   children: ReactNode;
   options?: CoolParticleOptions;
+  isActive?: boolean; // New prop to control animation state
 }
 
-export const CoolMode: React.FC<CoolModeProps> = ({ children, options }) => {
+export const CoolMode: React.FC<CoolModeProps> = ({ children, options, isActive = true }) => {
   const ref = useRef<HTMLElement>(null);
+  const cleanupRef = useRef<() => void | undefined>();
 
   useEffect(() => {
-    if (ref.current) {
-      return applyParticleEffect(ref.current, options);
+    if (isActive && ref.current) {
+      cleanupRef.current = applyParticleEffect(ref.current, options);
+    } else if (cleanupRef.current) {
+      cleanupRef.current();
+      cleanupRef.current = undefined;
     }
-  }, [options]);
+
+    return () => {
+      if (cleanupRef.current) {
+        cleanupRef.current();
+        cleanupRef.current = undefined;
+      }
+    };
+  }, [isActive, options]);
 
   return React.cloneElement(children as React.ReactElement, { ref });
 };
