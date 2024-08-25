@@ -29,9 +29,7 @@ import {
 } from '@/components/ui/popover';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { ToastAction } from '@/components/ui/toast';
 import { useToast } from '@/components/ui/use-toast';
-import { BorderBeam } from './magicui/border-beam';
 import { CoolMode } from './magicui/cool-mode';
 import emailjs from 'emailjs-com';
 
