@@ -33,7 +33,7 @@ export function TeamMemberCard({
 }: TeamMemberCardProps) {
   return (
     <div className='rounded-lg border'>
-      <BorderBeam size={250} duration={12} delay={9} />
+      <BorderBeam />
       <Card
         className={cn(
           'flex h-full flex-col border transition-all duration-300 ease-out hover:shadow-lg',

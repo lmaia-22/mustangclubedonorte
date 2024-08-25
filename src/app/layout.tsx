@@ -6,7 +6,6 @@ import { ThemeProvider } from '@/components/theme-provider';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { DATA } from '@/data/resume';
 import { cn } from '@/lib/utils';
-import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
 import FullScreenImage from '@/components/firstRender';
@@ -32,13 +31,25 @@ export default function RootLayout({
 
   useEffect(() => {
     const imageUrl = isMobile ? DATA.firstRenderUrlMobile : DATA.firstRenderUrl;
+    const videoUrl = '/mustang.mp4'; // Update this if needed
     const img = new Image();
     img.src = imageUrl;
 
-    img.onload = () => {
+    const video = document.createElement('video');
+    video.src = videoUrl;
+
+    Promise.all([
+      new Promise<void>((resolve) => {
+        img.onload = () => resolve();
+      }),
+      new Promise<void>((resolve) => {
+        video.onloadeddata = () => resolve();
+      }),
+    ]).then(() => {
       setIsLoading(false);
-    };
+    });
   }, [isMobile]);
+
   return (
     <html lang='en' suppressHydrationWarning className='scrollbar-hide'>
       <body
