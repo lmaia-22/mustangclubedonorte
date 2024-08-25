@@ -1,5 +1,5 @@
 import { Icons } from '@/components/icons';
-import { HomeIcon, NotebookIcon } from 'lucide-react';
+import { HomeIcon, NotebookIcon, PersonStandingIcon } from 'lucide-react';
 
 export const DATA = {
   name: 'Mustang Clube Do Norte',
@@ -62,6 +62,7 @@ export const DATA = {
   navbar: [
     { href: '/', icon: HomeIcon, label: 'Home' },
     { href: '/blog', icon: NotebookIcon, label: 'Blog' },
+    // { href: '/members', icon: PersonStandingIcon, label: 'Membros' },
   ],
   contact: {
     email: 'mustangclubedonorte@gamil.com',
@@ -80,12 +81,13 @@ export const DATA = {
 
         navbar: true,
       },
-      Email: {
-        name: 'Send Email',
-        url: 'mailto:mustangclubedonorte@gamil.com',
-        icon: Icons.email,
+      X: {
+        name: 'X',
+        url: 'https://x.com/ClubeMustangNP',
+        icon: Icons.x,
+
         navbar: true,
-      },
+      }
     },
   },
   faq: [

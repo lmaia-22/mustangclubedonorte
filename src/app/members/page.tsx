@@ -7,7 +7,6 @@ const BLUR_FADE_DELAY = 0.04;
 export default async function TeamPage() {
   return (
     <section id='members'>
-        <div>
             <BlurFade delay={BLUR_FADE_DELAY * 3}>
                 <div className='flex flex-col items-center justify-center space-y-4 text-center'>
                 <div className='space-y-2'>
@@ -23,7 +22,6 @@ export default async function TeamPage() {
                 </div>
                 </div>
             </BlurFade>
-        </div>
         <TeamGrid />
     </section>
   );
