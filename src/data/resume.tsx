@@ -88,7 +88,6 @@ export const DATA = {
       },
     },
   },
-
   faq: [
     {
       question: 'Como me posso juntar ao Clube?',

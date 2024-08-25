@@ -4,6 +4,7 @@ import { formatDate } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
+import Image from 'next/image'
 
 export async function generateMetadata({
   params,
@@ -99,10 +100,13 @@ export default async function Blog({
       ></article>
       {post.metadata.image && (
         <div className='mt-8'>
-          <img
+          <Image
             src={`${DATA.url}${post.metadata.image}`}
+            width={650}
+            height={500}
             alt={post.metadata.title}
-            className='mx-auto max-w-[650px]'
+            className='mx-auto max-w-full h-auto'
+            layout='responsive'
           />
         </div>
       )}

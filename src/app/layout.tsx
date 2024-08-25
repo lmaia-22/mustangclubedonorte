@@ -16,7 +16,6 @@ import ScrollLogo from '@/components/logo_on_top_right';
 import { Toaster } from '@/components/ui/toaster';
 import { useIsMobile } from '@/hooks/useIsMobile';
 import Loader from '@/components/loader';
-import { delay } from 'framer-motion';
 
 const fontSans = FontSans({
   subsets: ['latin'],
