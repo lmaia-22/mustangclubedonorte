@@ -31,12 +31,13 @@ export default function RootLayout({
 
   useEffect(() => {
     const imageUrl = isMobile ? DATA.firstRenderUrlMobile : DATA.firstRenderUrl;
-    const videoUrl = '/mustang.mp4'; // Update this if needed
+    const videoUrl = DATA.videoUrl;
     const img = new Image();
     img.src = imageUrl;
 
     const video = document.createElement('video');
     video.src = videoUrl;
+    video.playsInline = true;
 
     Promise.all([
       new Promise<void>((resolve) => {
