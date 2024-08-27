@@ -32,23 +32,42 @@ export default function RootLayout({
   useEffect(() => {
     const imageUrl = isMobile ? DATA.firstRenderUrlMobile : DATA.firstRenderUrl;
     const videoUrl = DATA.videoUrl;
+
     const img = new Image();
     img.src = imageUrl;
 
     const video = document.createElement('video');
     video.src = videoUrl;
-    video.playsInline = true;
+    video.playsInline = true; // Ensure the video doesn't enter fullscreen on iOS
 
-    Promise.all([
-      new Promise<void>((resolve) => {
-        img.onload = () => resolve();
-      }),
-      new Promise<void>((resolve) => {
-        video.onloadeddata = () => resolve();
-      }),
-    ]).then(() => {
-      setIsLoading(false);
+    // Ensure all promises complete
+    const imageLoadPromise = new Promise<void>((resolve, reject) => {
+      img.onload = () => resolve();
+      img.onerror = reject;
     });
+
+    const videoLoadPromise = new Promise<void>((resolve, reject) => {
+      video.onloadeddata = () => resolve();
+      video.onerror = reject;
+    });
+
+    // Set loading state once all assets are loaded
+    Promise.all([imageLoadPromise, videoLoadPromise])
+      .then(() => {
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error loading assets', error);
+        setIsLoading(false); // Still hide loader on error
+      });
+
+    // Cleanup on component unmount
+    return () => {
+      img.onload = null;
+      img.onerror = null;
+      video.onloadeddata = null;
+      video.onerror = null;
+    };
   }, [isMobile]);
 
   return (
@@ -63,13 +82,13 @@ export default function RootLayout({
           <Loader />
         ) : (
           <>
-            <ScrollLogo logoSrc='/logo_no_bk.png' altText='Small Logo' />
+            <ScrollLogo logoSrc={ DATA.avatarUrl } altText='Small Logo' />
             <FullScreenImage
               imageUrl={
                 isMobile ? DATA.firstRenderUrlMobile : DATA.firstRenderUrl
               }
             />
-            <FullscreenVideo videoSrc='/mustang.mp4' />
+            <FullscreenVideo videoSrc={ DATA.videoUrl } />
             <div
               className={cn(
                 'sm:py-18 mx-auto min-h-screen max-w-5xl bg-background px-6 py-6 font-sans antialiased',
