@@ -222,5 +222,11 @@ export const DATA = {
           image: '/members/Luis_Abreu.jpeg',
           instagram: 'https://www.instagram.com/mustangclubedonorte?igsh=MTRxcXE3aHEwcnlxdQ==',
         },
+        {
+          name: 'Nelson Pinho',
+          role: 'Membro',
+          image: '/members/Nelson_Pinho.jpeg',
+          instagram: 'https://www.instagram.com/mustangclubedonorte?igsh=MTRxcXE3aHEwcnlxdQ==',
+        },
       ]      
 } as const;

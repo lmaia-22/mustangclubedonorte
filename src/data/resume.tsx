@@ -63,7 +63,7 @@ export const DATA = {
   navbar: [
     { href: '/', icon: HomeIcon, label: 'Home' },
     { href: '/blog', icon: NotebookIcon, label: 'Blog' },
-    { href: '/members', icon: PersonStandingIcon, label: 'Membros' },
+    // { href: '/members', icon: PersonStandingIcon, label: 'Membros' },
   ],
   contact: {
     email: 'mustangclubedonorte@gamil.com',

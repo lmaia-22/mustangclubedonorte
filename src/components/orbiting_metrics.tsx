@@ -63,7 +63,7 @@ export function OrbitingMetrics() {
       >
         <div className='items-center justify-center'>
           <FontAwesomeIcon icon={faUserGroup} />
-          <p className='text-center font-sans text-xs'>40 Membros</p>
+          <p className='text-center font-sans text-xs'>41 Membros</p>
         </div>
       </OrbitingCircles>
     </div>
