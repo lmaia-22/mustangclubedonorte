@@ -22,6 +22,7 @@ export const DATA = {
   firstRenderUrl: '/bk_bigger.png',
   firstRenderUrlMobile: '/bk_mobile.png',
   avatarUrl: '/logo_no_bk.png',
+  videoUrl: '/mustang.mp4',
   skills: [
     'Viana Do Castelo',
     'Gondomar',
@@ -62,7 +63,7 @@ export const DATA = {
   navbar: [
     { href: '/', icon: HomeIcon, label: 'Home' },
     { href: '/blog', icon: NotebookIcon, label: 'Blog' },
-    // { href: '/members', icon: PersonStandingIcon, label: 'Membros' },
+    { href: '/members', icon: PersonStandingIcon, label: 'Membros' },
   ],
   contact: {
     email: 'mustangclubedonorte@gamil.com',
