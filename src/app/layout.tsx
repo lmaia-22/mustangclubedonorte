@@ -31,14 +31,10 @@ export default function RootLayout({
 
   useEffect(() => {
     const imageUrl = isMobile ? DATA.firstRenderUrlMobile : DATA.firstRenderUrl;
-    const videoUrl = DATA.videoUrl;
 
     const img = new Image();
     img.src = imageUrl;
 
-    const video = document.createElement('video');
-    video.src = videoUrl;
-    video.playsInline = true; // Ensure the video doesn't enter fullscreen on iOS
 
     // Ensure all promises complete
     const imageLoadPromise = new Promise<void>((resolve, reject) => {
@@ -46,13 +42,8 @@ export default function RootLayout({
       img.onerror = reject;
     });
 
-    const videoLoadPromise = new Promise<void>((resolve, reject) => {
-      video.onloadeddata = () => resolve();
-      video.onerror = reject;
-    });
-
     // Set loading state once all assets are loaded
-    Promise.all([imageLoadPromise, videoLoadPromise])
+    Promise.all([imageLoadPromise])
       .then(() => {
         setIsLoading(false);
       })
@@ -65,8 +56,6 @@ export default function RootLayout({
     return () => {
       img.onload = null;
       img.onerror = null;
-      video.onloadeddata = null;
-      video.onerror = null;
     };
   }, [isMobile]);
 

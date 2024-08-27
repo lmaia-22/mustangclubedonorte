@@ -23,16 +23,21 @@ export const TeamGrid: React.FC = () => {
     return (
       <div className='container mx-auto px-4 py-8'>
         <div className='grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 px-4 py-8 mx-auto'>
-          {DATA.members.slice(0, visibleCount).map((Membro, index) => (
-            <TeamMemberCard
-              key={index}
-              name={Membro.name}
-              role={Membro.role}
-              picture={Membro.image}
-              social={Membro.instagram}
-            />
-          ))}
+          {[...DATA.members]
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .slice(0, visibleCount)
+            .map((Membro, index) => (
+              <TeamMemberCard
+                key={index}
+                name={Membro.name}
+                role={Membro.role}
+                picture={Membro.image}
+                social={Membro.instagram}
+              />
+            ))}
         </div>
+
+
   
         <div className='flex justify-center mt-8'>
           {visibleCount < DATA.members.length && (
