@@ -4,7 +4,7 @@ import { formatDate } from '@/lib/utils';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { Suspense } from 'react';
-import Image from 'next/image'
+import Image from 'next/image';
 
 export async function generateMetadata({
   params,
@@ -105,7 +105,7 @@ export default async function Blog({
             width={650}
             height={500}
             alt={post.metadata.title}
-            className='mx-auto max-w-full h-auto'
+            className='mx-auto h-auto max-w-full'
             layout='responsive'
           />
         </div>

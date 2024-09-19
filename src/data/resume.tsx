@@ -88,7 +88,7 @@ export const DATA = {
         icon: Icons.x,
 
         navbar: true,
-      }
+      },
     },
   },
   faq: [

@@ -35,7 +35,6 @@ export default function RootLayout({
     const img = new Image();
     img.src = imageUrl;
 
-
     // Ensure all promises complete
     const imageLoadPromise = new Promise<void>((resolve, reject) => {
       img.onload = () => resolve();
@@ -71,13 +70,15 @@ export default function RootLayout({
           <Loader />
         ) : (
           <>
-            <ScrollLogo logoSrc={ DATA.avatarUrl } altText='Small Logo' />
+            {!isMobile && (
+              <ScrollLogo logoSrc={DATA.avatarUrl} altText='Small Logo' />
+            )}
             <FullScreenImage
               imageUrl={
                 isMobile ? DATA.firstRenderUrlMobile : DATA.firstRenderUrl
               }
             />
-            <FullscreenVideo videoSrc={ DATA.videoUrl } />
+            <FullscreenVideo videoSrc={DATA.videoUrl} />
             <div
               className={cn(
                 'sm:py-18 mx-auto min-h-screen max-w-5xl bg-background px-6 py-6 font-sans antialiased',

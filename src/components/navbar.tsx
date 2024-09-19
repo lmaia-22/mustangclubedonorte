@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Dock, DockIcon } from '@/components/magicui/dock';
 import { ModeToggle } from '@/components/mode-toggle';
 import { buttonVariants } from '@/components/ui/button';
@@ -15,29 +16,33 @@ import { DATA } from '@/data/resume';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function Navbar() {
   const navbarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (navbarRef.current) {
-      gsap.set(navbarRef.current, { y: 100, opacity: 0 }); // Start position (hidden)
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: navbarRef.current,
+          start: 'top bottom',
+          end: 'top top',
+          scrub: 1,
+          pin: false,
+        },
+      });
 
-      const showNavbar = () => {
-        if (window.scrollY > 100) {
-          // Trigger after scrolling down 100px
-          gsap.to(navbarRef.current, {
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            ease: 'power3.out',
-          });
-        }
-      };
-
-      window.addEventListener('scroll', showNavbar);
+      tl.from(navbarRef.current, { y: 200, opacity: 0 }).to(navbarRef.current, {
+        y: 0,
+        opacity: 1,
+        duration: 2,
+        ease: 'power3.out',
+      });
 
       return () => {
-        window.removeEventListener('scroll', showNavbar);
+        tl.scrollTrigger?.kill();
+        tl.kill();
       };
     }
   }, []);

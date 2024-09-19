@@ -35,6 +35,7 @@ const FullscreenVideo = React.forwardRef<HTMLDivElement, FullscreenVideoProps>(
             opacity: 1,
             ease: 'power3.out',
             delay: 2.5,
+            transformOrigin: 'center center',
           });
 
           gsap.to(infoTextElement, {
@@ -69,6 +70,7 @@ const FullscreenVideo = React.forwardRef<HTMLDivElement, FullscreenVideoProps>(
                 scale: 1 - progress * 0.2,
                 opacity: 1 - progress * 0.5,
                 overwrite: 'auto',
+                transformOrigin: 'center center',
               });
 
               gsap.to(infoTextElement, {
@@ -82,7 +84,6 @@ const FullscreenVideo = React.forwardRef<HTMLDivElement, FullscreenVideoProps>(
       }
 
       return () => {
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         gsap.killTweensOf(videoElement);
         gsap.killTweensOf(infoTextElement);
         gsap.killTweensOf(arrowElement);
@@ -94,16 +95,13 @@ const FullscreenVideo = React.forwardRef<HTMLDivElement, FullscreenVideoProps>(
         <video
           ref={videoRef}
           src={videoSrc}
-          className='absolute left-0 top-0 h-full w-full scale-110 object-cover opacity-0'
+          className='left-0 top-0 h-full w-full object-cover opacity-0'
           autoPlay
           muted
           loop
         ></video>
         {isVideoLoaded && (
-          <div
-            ref={infoTextRef}
-            className='absolute inset-x-0 bottom-0 text-center'
-          >
+          <div ref={infoTextRef} className='inset-x-0 bottom-0 text-center'>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <div ref={arrowRef} className='mb-24 text-white'>
                 <p>Desliza para baixo</p>

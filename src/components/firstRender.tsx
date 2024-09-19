@@ -14,7 +14,6 @@ const FullScreenImage: React.FC<FullScreenImageProps> = ({ imageUrl }) => {
     if (imageRef.current) {
       const tl = gsap.timeline({
         onComplete: () => {
-          // Make the element invisible after the animation
           gsap.set(imageRef.current, { visibility: 'hidden' });
         },
       });
@@ -58,6 +57,15 @@ const FullScreenImage: React.FC<FullScreenImageProps> = ({ imageUrl }) => {
         borderRadius: '50%',
         ease: 'power4.in',
       });
+      return () => {
+        // Kill the timeline if it's still running
+        tl.kill();
+
+        // Optionally reset the image to its original state or remove any GSAP applied properties
+        gsap.set(imageRef.current, {
+          clearProps: 'all', // This will remove all inline styles added by GSAP
+        });
+      };
     }
   }, []);
 
