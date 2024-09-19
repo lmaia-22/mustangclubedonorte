@@ -101,7 +101,7 @@ const FullscreenVideo = React.forwardRef<HTMLDivElement, FullscreenVideoProps>(
           loop
         ></video>
         {isVideoLoaded && (
-          <div ref={infoTextRef} className='inset-x-0 bottom-0 text-center'>
+          <div ref={infoTextRef} className='absolute inset-x-0 bottom-0 text-center'>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <div ref={arrowRef} className='mb-24 text-white'>
                 <p>Desliza para baixo</p>
