@@ -75,7 +75,7 @@ export default function Page() {
                 Os principais objetivos do clube.
               </h2>
               <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                Como todos os bons projetos devem existir objectivos e nós temos
+                Como em todos os bons projetos devem existir objectivos e nós temos
                 estes.
               </p>
             </div>
@@ -142,7 +142,7 @@ export default function Page() {
                   Lista de Cidades Conquistadas pelo Clube
                 </h2>
                 <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                  Devagar se vai ao longe, vamos conquisrtar Portugal inteiro!
+                  Devagar se vai ao longe, vamos conquistar Portugal inteiro!
                 </p>
               </div>
             </div>
@@ -200,7 +200,7 @@ export default function Page() {
                   Espreitem as nossas melhores &apos;chapas&apos;!
                 </h2>
                 <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                  As fotografias dos passeos e eventos tiradas pelo fotografio
+                  As fotografias dos passeios e eventos tiradas pelo nosso fotógrafo
                   do Clube e também alguns membros.
                 </p>
               </div>

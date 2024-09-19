@@ -8,17 +8,16 @@ export const DATA = {
   description:
     '		Somos uma comunidade vibrante de aficionados por um dos ícones mais emblemáticos do mundo automobilístico: o Ford Mustang. Desde o ronco inconfundível do motor até às linhas clássicas que definem seu design, cada detalhe dos Mustangs desperta uma paixão que decidimos celebrar juntos.',
   summary:
-    'Organizamos regularmente eventos e passeios que são a verdadeira expressão de nossa paixão por Mustangs. ' +
-    'Desde encontros casuais a eventos mais elaborados, cada ocasião é uma oportunidade para os membros mostrarem seus carros, trocarem experiências e criar memórias duradouras.' +
-    'Nossos eventos são também uma chance para admirar a evolução destes carros espetaculares ao longo dos anos e ver de perto modelos clássicos e modernos.',
+    'Organizamos regularmente eventos e passeios que são a verdadeira expressão da nossa paixão por Mustangs. ' +
+    'Desde encontros casuais, a eventos mais elaborados, cada ocasião é uma oportunidade para os membros mostrarem seus carros, trocarem experiências e criar memórias duradouras.' +
+    'Nossos eventos são também uma oportunidade para admirar a evolução destes carros espetaculares ao longo dos anos e ver de perto modelos clássicos e modernos.',
   summary1:
-    'Se você possui um Mustang e está no Norte de Portugal, venha fazer parte do nosso grupo!' +
+    'Se tem um Mustang e está no Norte de Portugal, venha fazer parte do nosso clube!' +
     'Não importa se o seu Mustang é um clássico restaurado ou um modelo mais recente, o que nos une é a paixão por este carro extraordinário.' +
-    'Ao se juntar a nós, você terá a oportunidade de participar de todos os nossos eventos, além de ter acesso a um grupo de apoio entusiasta para qualquer necessidade ou dúvida relacionada ao seu Mustang.',
-  mission1: 'Unir entusiastas de Mustangs através de eventos e passeios.',
+    'Ao se juntar a nós, você terá a oportunidade de participar em todos os nossos eventos, além de ter acesso a um grupo de apoio entusiasta para qualquer necessidade ou dúvida relacionada ao seu Mustang.',
+  mission1: 'Unir fanáticos de Mustangs através de eventos e passeios.',
   mission2: 'Proporcionar momentos de pura adrenalina e convívio.',
-  mission3:
-    'Oferecer uma plataforma para compartilhar conhecimentos e experiências.',
+  mission3: 'Oferecer uma plataforma para compartilhar conhecimentos e experiências.',
   firstRenderUrl: '/bk_bigger.png',
   firstRenderUrlMobile: '/bk_mobile.png',
   avatarUrl: '/logo_no_bk.png',
@@ -29,6 +28,7 @@ export const DATA = {
     'Castelo da Paiva',
     'Guimarães',
     'Aveiro',
+    'Caramuo',
   ],
   team: [
     {
@@ -138,6 +138,21 @@ export const DATA = {
   ],
   metrics: 'Os nosso números que nos orgulhamos, e que continuam a crescer.',
   hackathons: [
+    {
+      title: 'Festival do Caramulo',
+      dates: '8 Setembro, 2024',
+      location: 'Caramulo, Portugal',
+      description:
+        'Um passeio pela bela serra do Caramulo, onde entramos no Caramulo Motorfestival, para conhecer outras máquinas e também fazer a subida da famosa rampa.',
+      image: '/portfolio/portfolio-29.jpg',
+      links: [
+        {
+          title: 'Website',
+          icon: <Icons.globe className='h-4 w-4' />,
+          href: 'https://www.caramulo-motorfestival.com/pt/',
+        },
+      ],
+    },
     {
       title: 'Passeio ao Berço de Portugal',
       dates: '11 Agosto, 2024',

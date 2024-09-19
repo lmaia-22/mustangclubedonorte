@@ -88,6 +88,9 @@ const reviews = [
   {
     img: '/portfolio/portfolio-28.jpg',
   },
+  {
+    img: '/portfolio/portfolio-29.jpg',
+  },
 ];
 
 const firstRow = reviews.slice(0, reviews.length / 2);
