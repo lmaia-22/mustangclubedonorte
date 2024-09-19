@@ -28,7 +28,7 @@ export const DATA = {
     'Castelo da Paiva',
     'Guimarães',
     'Aveiro',
-    'Caramuo',
+    'Caramulo',
   ],
   team: [
     {
@@ -136,7 +136,7 @@ export const DATA = {
         'Não, alguns eventos serão no Norte de Espanha em pareceria com outros clubes de mustangs',
     },
   ],
-  metrics: 'Os nosso números que nos orgulhamos, e que continuam a crescer.',
+  metrics: 'Os nossos números que nos orgulhamos, e que continuam a crescer.',
   hackathons: [
     {
       title: 'Festival do Caramulo',
