@@ -1,12 +1,13 @@
 import { DATA } from '@/data/resume';
-import type { Metadata } from 'next';
+import type { Metadata as typeMetadata } from 'next';
 
-export const metadata: Metadata = {
+export const Metadata: typeMetadata = {
   metadataBase: new URL(DATA.url),
   title: {
     default: DATA.name,
     template: `%s | ${DATA.name}`,
   },
+  
   description: DATA.description,
   openGraph: {
     title: `${DATA.name}`,
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
     siteName: `${DATA.name}`,
     locale: 'pt_PT',
     type: 'website',
+    images: `${DATA.url}/bk.jpeg`,
   },
   robots: {
     index: true,
@@ -30,10 +32,10 @@ export const metadata: Metadata = {
   twitter: {
     title: `${DATA.name}`,
     card: 'summary_large_image',
+    images: `${DATA.url}/bk.jpeg`,
   },
   verification: {
     google: '',
-    yandex: '',
   },
   icons: {
     icon: '/favicon.ico',

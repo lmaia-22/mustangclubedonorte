@@ -4,7 +4,7 @@ import { HomeIcon, NotebookIcon, PersonStandingIcon } from 'lucide-react';
 export const DATA = {
   name: 'Mustang Clube Do Norte',
   initials: 'MCdN',
-  url: 'https://mustangclubedonorte.vercel.app',
+  url: 'https://mustangclubedonorte.pt',
   description:
     '		Somos uma comunidade vibrante de aficionados por um dos ícones mais emblemáticos do mundo automobilístico: o Ford Mustang. Desde o ronco inconfundível do motor até às linhas clássicas que definem seu design, cada detalhe dos Mustangs desperta uma paixão que decidimos celebrar juntos.',
   summary:

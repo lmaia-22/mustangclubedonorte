@@ -13,7 +13,7 @@ import { MarqueeDemo } from '@/components/portfolio';
 import { ProfileForm } from '@/components/contact';
 import { BorderBeam } from '@/components/magicui/border-beam';
 
-const BLUR_FADE_DELAY = 0.0;
+const BLUR_FADE_DELAY = 0.8;
 
 export default function Page() {
   return (
@@ -22,12 +22,7 @@ export default function Page() {
         <div className='mx-auto w-full space-y-8'>
           <div className='flex flex-col items-center justify-between md:flex-row md:gap-2'>
             <div className='flex flex-1 flex-col items-center justify-center space-y-1.5 md:text-left'>
-              <BlurFadeText
-                delay={BLUR_FADE_DELAY}
-                className='mb-4 text-center text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none'
-                yOffset={8}
-                text={`${DATA.name}`}
-              />
+              <h1 className='mb-4 text-center text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none'>{DATA.name}</h1>
               <BlurFadeText
                 className='max-w-[600px] text-center md:text-xl'
                 delay={BLUR_FADE_DELAY}
