@@ -23,6 +23,8 @@ export const DATA = {
   avatarUrl: '/logo_no_bk.png',
   videoUrl: '/mustang.mp4',
   skills: [
+    'Gaia',
+    'Penafiel',
     'Viana Do Castelo',
     'Gondomar',
     'Castelo da Paiva',
