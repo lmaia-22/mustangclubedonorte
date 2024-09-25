@@ -12,6 +12,7 @@ import Markdown from 'react-markdown';
 import { MarqueeDemo } from '@/components/portfolio';
 import { ProfileForm } from '@/components/contact';
 import { BorderBeam } from '@/components/magicui/border-beam';
+import SpotifyPlayer from '@/components/spotify';
 
 const BLUR_FADE_DELAY = 0.8;
 
@@ -281,6 +282,26 @@ export default function Page() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+      <section id='spotify'>
+        <div className='relative w-full text-center'>
+          <BlurFade delay={BLUR_FADE_DELAY * 16}>
+            <div className='space-y-3'>
+              <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background'>
+                Spotify
+              </div>
+              <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
+                A playlist favorita dos nossos carros
+              </h2>
+              <p className='mx-auto mb-4 max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
+                Dêem uma vista de olhos e curtam o DJ
+              </p>
+              <div className='relative mx-auto max-w-md rounded-lg'>
+                <SpotifyPlayer embedId="playlist/0RJqpCxLZaSthsoEqJYZkh?utm_source=generator&theme=0" />
+              </div>
+            </div>
+          </BlurFade>
         </div>
       </section>
       <section id='contact'>

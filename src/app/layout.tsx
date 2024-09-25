@@ -1,14 +1,8 @@
 import React from 'react';
-import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
 import { Metadata as typeMetadata } from 'next';
 import { Metadata } from './metadata';
 import LayoutNested from './layoutNested';
-
-const fontSans = FontSans({
-  subsets: ['latin'],
-  variable: '--font-sans',
-});
 
 export const metadata: typeMetadata = {
   ...Metadata
