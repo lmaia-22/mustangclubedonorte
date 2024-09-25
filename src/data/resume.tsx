@@ -141,7 +141,7 @@ export const DATA = {
   metrics: 'Os nossos números que nos orgulhamos, e que continuam a crescer.',
   hackathons: [
     {
-      title: 'Festival do Caramulo',
+      title: 'Caramulo MotorFestival',
       dates: '8 Setembro, 2024',
       location: 'Caramulo, Portugal',
       description:
@@ -175,7 +175,7 @@ export const DATA = {
       links: [],
     },
     {
-      title: 'Evento Cars n Cans',
+      title: 'Evento "Cars n Cans"',
       dates: '30 Julho, 2024',
       location: 'Gondomar, Portugal',
       description:

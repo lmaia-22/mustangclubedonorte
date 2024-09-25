@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'mustangclubedonorte.vercel.app',
+        hostname: 'www.mustangclubedonorte.pt/',
         port: '',
         pathname: '/**',
       },
