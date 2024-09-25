@@ -27,7 +27,7 @@ export default function footer() {
                 </span>
               </a>
               <p className='max-w-xs'>
-                Um clube para todos os apaixonados pelo modelo iconico Ford
+                Um clube para todos os apaixonados pelo modelo icónico Ford
                 Mustang.
               </p>
             </div>

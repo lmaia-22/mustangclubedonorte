@@ -5,7 +5,7 @@ import Link from 'next/link';
 export const metadata = {
   badge: 'Blog',
   title: 'Blog das nossas aventuras',
-  description: 'As nossas pequenas e grandes aventuras.',
+  description: 'As nossas pequenas grandes aventuras.',
 };
 
 const BLUR_FADE_DELAY = 0.04;

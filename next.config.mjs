@@ -5,7 +5,13 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'www.mustangclubedonorte.pt/',
+        hostname: 'mustangclubedonorte.pt',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.mustangclubedonorte.pt',
         port: '',
         pathname: '/**',
       },
