@@ -41,7 +41,7 @@ export default function Page() {
                 Sobre
               </div>
               <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                Sobre Nós e Quem Somos
+                Quem Somos
               </h2>
               <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
                 Como nascemos e como vamos viver
@@ -68,7 +68,7 @@ export default function Page() {
                 Missão
               </div>
               <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                Os Principais Objetivos
+                Principais Objetivos
               </h2>
               <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
                 Como em todos os bons projetos devem existir objectivos e nós temos
@@ -113,7 +113,7 @@ export default function Page() {
                   Clube
                 </div>
                 <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                  As Nossas Métricas
+                  Métricas
                 </h2>
                 <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
                   {DATA.metrics}
@@ -161,7 +161,7 @@ export default function Page() {
                   Equipa
                 </div>
                 <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                  Os membros da Administração
+                  Membros da Administração
                 </h2>
                 <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
                   Conheça os carros e nomes dos administradores.
@@ -240,6 +240,7 @@ export default function Page() {
                     dates={project.dates}
                     image={project.image}
                     links={project.links}
+                    postLink={project.postLink}
                   />
                 </BlurFade>
               ))}
@@ -295,7 +296,7 @@ export default function Page() {
                 A playlist favorita dos nossos carros
               </h2>
               <p className='mx-auto mb-4 max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                Dêem uma vista de olhos e curtam o DJ
+                Não se esqueça de adicionar aos favoritos
               </p>
               <div className='relative mx-auto max-w-md rounded-lg'>
                 <SpotifyPlayer embedId="playlist/0RJqpCxLZaSthsoEqJYZkh?utm_source=generator&theme=0" />
@@ -315,8 +316,7 @@ export default function Page() {
                 Entre em contacto
               </h2>
               <p className='mx-auto mb-4 max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                Quer entrar para o clube? Quer fazer alguma parceria? Quer saber
-                mais sobre o Clube?
+                Se quer saber mais sobre o clube ou entrar nele preencha o formulário abaixo. 
               </p>
               <div className='relative mx-auto max-w-md rounded-lg'>
                 <BorderBeam />

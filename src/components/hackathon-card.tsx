@@ -13,6 +13,7 @@ interface Props {
     title: string;
     href: string;
   }[];
+  postLink?: string;
 }
 
 export function HackathonCard({
@@ -22,14 +23,17 @@ export function HackathonCard({
   location,
   image,
   links,
+  postLink,
 }: Props) {
   return (
     <li key='eventCard' className='relative ml-10 py-4'>
       <div className='absolute -left-16 top-2 flex items-center justify-center rounded-full bg-white'>
-        <Avatar className='m-auto size-12 border'>
-          <AvatarImage src={image} alt={title} className='' />
-          <AvatarFallback>{title[0]}</AvatarFallback>
-        </Avatar>
+        <a href={postLink}>
+          <Avatar className='m-auto size-12 border'>
+              <AvatarImage src={image} alt={title} className='' />
+              <AvatarFallback>{title[0]}</AvatarFallback>
+          </Avatar>          
+        </a>
       </div>
       <div className='flex flex-1 flex-col justify-start gap-1'>
         {dates && (

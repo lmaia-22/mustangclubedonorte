@@ -154,6 +154,7 @@ export const DATA = {
           href: 'https://www.caramulo-motorfestival.com/pt/',
         },
       ],
+      postLink: '/blog/caramulo',
     },
     {
       title: 'Passeio ao Berço de Portugal',
@@ -163,6 +164,7 @@ export const DATA = {
         'Um passeio pela estrada do Berco de Portugal, a serra da Penha e a parte histórica da cidade com apoio da Policia Municipal.',
       image: '/portfolio/portfolio-28.jpg',
       links: [],
+      postLink: '/blog/guimaraes',
     },
     {
       title: 'Passeio a Aveiro',
@@ -173,6 +175,7 @@ export const DATA = {
       image: '/portfolio/portfolio-19.jpg',
       mlh: 'https://s3.amazonaws.com/logged-assets/trust-badge/2019/mlh-trust-badge-2019-white.svg',
       links: [],
+      postLink: '/blog/aveiro',
     },
     {
       title: 'Evento "Cars n Cans"',
@@ -189,6 +192,7 @@ export const DATA = {
           href: 'https://www.b5oliveira.pt/carsncans',
         },
       ],
+      postLink: '/blog/carsncans',
     },
     {
       title: 'Evento Penafiel Racing Fest',
@@ -204,6 +208,7 @@ export const DATA = {
           href: 'https://racingfest.pt/',
         },
       ],
+      postLink: '/blog/penafiel_racing_fest',
     },
     {
       title: 'Passeio à cidade da Bola de Berlim',
@@ -212,6 +217,7 @@ export const DATA = {
       description: 'O primeiro passeio oficial como clube Mustang Do Norte.',
       image: '/portfolio/portfolio-20.jpg',
       links: [],
+      postLink: '/blog/viana_do_castelo',
     },
     {
       title: 'Passeio a Castelo de Paiva',
@@ -221,6 +227,7 @@ export const DATA = {
         'Primeiro passeio, ainda como um grupo de amigos, não como um clube ainda, foi neste passeio que tudo mudou.',
       image: '/portfolio/portfolio-4.jpg',
       links: [],
+      postLink: '/blog/castelo_paiva',
     },
     {
       title: 'O ínicio',
@@ -229,6 +236,7 @@ export const DATA = {
       description: 'Aqui começou tudo, num simples jantar',
       image: '/portfolio/portfolio-8.jpg',
       links: [],
+      postLink: '/blog/gaia',
     },
   ],
 } as const;

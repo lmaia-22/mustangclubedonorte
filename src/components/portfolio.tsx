@@ -122,12 +122,12 @@ export function MarqueeDemo() {
   return (
     <div className='flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow'>
       <BorderBeam />
-      <Marquee pauseOnHover className='[--duration:20s]'>
+      <Marquee pauseOnHover className='[--duration:60s]'>
         {firstRow.map((review, index) => (
           <ReviewCard key={index} img={review.img} />
         ))}
       </Marquee>
-      <Marquee reverse pauseOnHover className='[--duration:20s]'>
+      <Marquee reverse pauseOnHover className='[--duration:60s]'>
         {secondRow.map((review, index) => (
           <ReviewCard key={index} img={review.img} />
         ))}
