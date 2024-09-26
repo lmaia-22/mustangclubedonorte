@@ -68,7 +68,7 @@ export default function Page() {
                 Missão
               </div>
               <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                Os principais objetivos do clube.
+                Os Principais Objetivos.
               </h2>
               <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
                 Como em todos os bons projetos devem existir objectivos e nós temos
@@ -113,7 +113,7 @@ export default function Page() {
                   Clube
                 </div>
                 <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                  O nosso Clube
+                  As Nossas Métricas
                 </h2>
                 <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
                   {DATA.metrics}
