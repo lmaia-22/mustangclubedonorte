@@ -23,15 +23,15 @@ export function formatDate(date: string) {
   if (daysAgo < 1) {
     return 'Hoje';
   } else if (daysAgo < 7) {
-    return `${fullDate} (${daysAgo}dias atrás)`;
+    return `${fullDate} (${daysAgo} d)`;
   } else if (daysAgo < 30) {
     const weeksAgo = Math.floor(daysAgo / 7);
-    return `${fullDate} (${weeksAgo}anos atrás)`;
+    return `${fullDate} (${weeksAgo} a)`;
   } else if (daysAgo < 365) {
     const monthsAgo = Math.floor(daysAgo / 30);
-    return `${fullDate} (${monthsAgo}meses atrás)`;
+    return `${fullDate} (${monthsAgo} m)`;
   } else {
     const yearsAgo = Math.floor(daysAgo / 365);
-    return `${fullDate} (${yearsAgo}anos atrás)`;
+    return `${fullDate} (${yearsAgo} a)`;
   }
 }
