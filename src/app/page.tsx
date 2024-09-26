@@ -68,7 +68,7 @@ export default function Page() {
                 Missão
               </div>
               <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                Os Principais Objetivos.
+                Os Principais Objetivos
               </h2>
               <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
                 Como em todos os bons projetos devem existir objectivos e nós temos
@@ -135,7 +135,7 @@ export default function Page() {
                   Conquistas
                 </div>
                 <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                  Lista de Cidades Conquistadas pelo Clube
+                  Cidades Conquistadas
                 </h2>
                 <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
                   Devagar se vai ao longe, vamos conquistar Portugal inteiro!
