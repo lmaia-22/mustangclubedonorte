@@ -152,38 +152,6 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id='team'>
-        <div className='flex min-h-0 flex-col gap-y-3'>
-          <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <div className='flex flex-col items-center justify-center space-y-4 text-center'>
-              <div className='space-y-2'>
-                <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background'>
-                  Equipa
-                </div>
-                <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                  Membros da Administração
-                </h2>
-                <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                  Conheça os carros e nomes dos administradores.
-                </p>
-              </div>
-            </div>
-          </BlurFade>
-          <div className='mx-auto mt-4 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4'>
-            {DATA.team.map((team, id) => (
-              <BlurFade key={id + 1} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                <TeamMemberCard
-                  key={id}
-                  name={team.name}
-                  role={team.role}
-                  picture={team.image}
-                  social={team.instagram}
-                />
-              </BlurFade>
-            ))}
-          </div>
-        </div>
-      </section>
       <section id='projects'>
         <div className='w-full space-y-12 py-4'>
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
