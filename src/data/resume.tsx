@@ -147,6 +147,7 @@ export const DATA = {
       image: '/portfolio/portfolio-31.jpg',
       description: 
         'Fomos convidados a jantar no restaurante Cais B Petiscaria, no cais em Bitetos e como tal organizamos um passeio pelo Douro. Foi um dia divertido e um passeio cheio de belas vistas!',
+      links: [],
       postLink: '/blog/bitetos',
     },
     {
@@ -163,7 +164,7 @@ export const DATA = {
           href: 'https://www.exponor.pt/agenda/autoclassico-2024/',
         },
       ],
-      postLink: '/blog/autoclassicos',
+      postLink: '/blog/autoclassicosporto',
     },
     {
       title: 'Caramulo MotorFestival',
