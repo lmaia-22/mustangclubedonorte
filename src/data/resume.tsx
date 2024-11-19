@@ -141,6 +141,31 @@ export const DATA = {
   metrics: 'Os números que nos orgulhamos e que continuam a crescer.',
   hackathons: [
     {
+      title: 'Passeio a Bitetos',
+      dates: '27 Outubro, 2024',
+      location: 'Bitetos, Portugal',
+      image: '/portfolio/portfolio-31.jpg',
+      description: 
+        'Fomos convidados a jantar no restaurante Cais B Petiscaria, no cais em Bitetos e como tal organizamos um passeio pelo Douro. Foi um dia divertido e um passeio cheio de belas vistas!',
+      postLink: '/blog/bitetos',
+    },
+    {
+      title: 'AutoClássicos Porto',
+      dates: '6 Outubro, 2024',
+      location: 'Porto, Portugal',
+      image: '/portfolio/portfolio-30.jpg',
+      description: 
+        'Fomos convidados a participar no evento a AutoClássicos Porto, onde tivemos a oportunidade de mostrar os nossos cavalos e de participar numa "corrida" de carros cavalos no mini circuito existente na Exponor. Foi uma experiência incrível e divertida!',
+      links: [
+        {
+          title: 'Website',
+          icon: <Icons.globe className='h-4 w-4' />,
+          href: 'https://www.exponor.pt/agenda/autoclassico-2024/',
+        },
+      ],
+      postLink: '/blog/autoclassicos',
+    },
+    {
       title: 'Caramulo MotorFestival',
       dates: '8 Setembro, 2024',
       location: 'Caramulo, Portugal',
