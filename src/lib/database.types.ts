@@ -10,6 +10,7 @@ export type Database = {
           phone: string
           brand: string
           model: string
+          year: string
           license_plate: string
           city: string
           picture_url: string | null
@@ -22,6 +23,7 @@ export type Database = {
           phone: string
           brand: string
           model: string
+          year: string
           license_plate: string
           city: string
           picture_url?: string | null

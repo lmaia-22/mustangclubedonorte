@@ -37,6 +37,9 @@ const formSchema = z
     model: z.string().min(2, {
         message: 'Modelo deve ter mais que 1 caracter.',
     }),
+    year: z.string().min(4, {
+      message: 'Ano deve ter mais que 4 caracter.',
+  }),
     licensePlate: z.string(),
     city: z.string(),
     picture: z.any().optional(),
@@ -53,6 +56,7 @@ export function ProfileForm() {
       phone: '',
       brand: '',
       model: '',
+      year: '',
       licensePlate: '',
       city: '',
       picture: '',
@@ -68,8 +72,8 @@ export function ProfileForm() {
   };
 
   const allFieldsFilled = () => {
-    const { firstName, lastName, email, phone, brand, model, city, licensePlate } = form.watch();
-    return firstName && lastName && email && phone && brand && model && city && licensePlate;
+    const { firstName, lastName, email, phone, brand, model, year, city, licensePlate } = form.watch();
+    return firstName && lastName && email && phone && brand && model && year && city && licensePlate;
   };
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
@@ -108,6 +112,7 @@ export function ProfileForm() {
           phone: data.phone,
           brand: data.brand,
           model: data.model,
+          year: data.year,
           license_plate: data.licensePlate,
           city: data.city,
           picture_url: imageUrl
@@ -222,6 +227,22 @@ export function ProfileForm() {
                 </FormLabel>
                 <FormControl>
                   <Input placeholder='Mustang GT' {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name='year'
+            render={({ field }) => (
+              <FormItem className='flex flex-col'>
+                <FormLabel className='mx-auto text-center text-black'>
+                  Ano
+                </FormLabel>
+                <FormControl>
+                  <Input placeholder='2025' {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
