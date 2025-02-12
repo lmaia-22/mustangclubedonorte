@@ -1,5 +1,5 @@
 import { Icons } from '@/components/icons';
-import { HomeIcon, NotebookIcon, PersonStandingIcon } from 'lucide-react';
+import { HomeIcon, NotebookIcon, PenIcon, PersonStandingIcon } from 'lucide-react';
 
 export const DATA = {
   name: 'Mustang Clube Do Norte',
@@ -31,6 +31,10 @@ export const DATA = {
     'Guimarães',
     'Aveiro',
     'Caramulo',
+    'Fafe',
+    'Matosinhos',
+    'Paços de Ferreira',
+    'Figueira da Foz'
   ],
   team: [
     {
@@ -65,6 +69,7 @@ export const DATA = {
   navbar: [
     { href: '/', icon: HomeIcon, label: 'Home' },
     { href: '/blog', icon: NotebookIcon, label: 'Blog' },
+    { href: '/form', icon: PenIcon, label: 'Form' },
     // { href: '/members', icon: PersonStandingIcon, label: 'Membros' },
   ],
   contact: {
@@ -140,6 +145,46 @@ export const DATA = {
   ],
   metrics: 'Os números que nos orgulhamos e que continuam a crescer.',
   hackathons: [
+    {
+      title: 'Passeio a Figueira da Foz',
+      dates: '9 Fevereiro, 2025',
+      location: 'Figueira da Foz, Portugal',
+      image: '/portfolio/portfolio-35.jpg',
+      description: 
+        'Conhecer a cidade da Figueira da Foz, onde fizemos a famosa enforca cães e visitamos o Miradouro da Bandeira.',
+      links: [],
+      postLink: '/blog/figueiradafoz',
+    },
+    {
+      title: 'Passeio a Paços de Ferreira',
+      dates: '11 Janeiro, 2025',
+      location: 'Paços de Ferreira, Portugal',
+      image: '/portfolio/portfolio-34.jpg',
+      description: 
+        'Visitamos a cidade de Paços de Ferreira e acabamos a jantar no famoso Wing Club.',
+      links: [],
+      postLink: '/blog/pacosdeferreira',
+    },
+    {
+      title: 'Jantar de Natal',
+      dates: '14 Dezembro, 2024',
+      location: 'Norte, Portugal',
+      image: '/portfolio/portfolio-33.jpg',
+      description: 
+        'Fizemos a marginal de Leça até Grijó, onde jantamos no restaurante Tainha.',
+      links: [],
+      postLink: '/blog/natal2024',
+    },
+    {
+      title: 'Passeio a Fafe',
+      dates: '24 Novembro, 2024',
+      location: 'Fafe, Portugal',
+      image: '/portfolio/portfolio-32.jpg',
+      description: 
+        'Fomos visitar a bela cidade de fafe e como tal o famoso museu de rally de fafe e ver as lendas do rally',
+      links: [],
+      postLink: '/blog/fafe',
+    },
     {
       title: 'Passeio a Bitetos',
       dates: '27 Outubro, 2024',

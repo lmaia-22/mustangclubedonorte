@@ -8,13 +8,6 @@ export const DATA = {
         'https://www.instagram.com/mustangclubedonorte?igsh=MTRxcXE3aHEwcnlxdQ==',
     },
     {
-      name: 'Bruno Cruz',
-      role: 'Membro',
-      image: '/members/Bruno_Cruz.jpeg',
-      instagram:
-        'https://www.instagram.com/mustangclubedonorte?igsh=MTRxcXE3aHEwcnlxdQ==',
-    },
-    {
       name: 'Miguel Matos',
       role: 'Membro',
       image: '/members/Miguel_Matos.jpeg',

@@ -27,7 +27,7 @@ export function OrbitingMetrics() {
       >
         <div className='items-center justify-center'>
           <FontAwesomeIcon icon={faCalendarDays} />
-          <p className='text-center font-sans text-xs'>5 Passeios</p>
+          <p className='text-center font-sans text-xs'>9 Passeios</p>
         </div>
       </OrbitingCircles>
       <OrbitingCircles
@@ -38,7 +38,7 @@ export function OrbitingMetrics() {
       >
         <div className='items-center justify-center'>
           <FontAwesomeIcon icon={faRoad} />
-          <p className='text-center font-sans text-xs'>720 Quilómetros</p>
+          <p className='text-center font-sans text-xs'>1020 Quilómetros</p>
         </div>
       </OrbitingCircles>
 
@@ -51,7 +51,7 @@ export function OrbitingMetrics() {
       >
         <div className='items-center justify-center'>
           <FontAwesomeIcon icon={faClock} />
-          <p className='text-center font-sans text-xs'>120 Horas</p>
+          <p className='text-center font-sans text-xs'>160 Horas</p>
         </div>
       </OrbitingCircles>
       <OrbitingCircles
@@ -63,7 +63,7 @@ export function OrbitingMetrics() {
       >
         <div className='items-center justify-center'>
           <FontAwesomeIcon icon={faUserGroup} />
-          <p className='text-center font-sans text-xs'>49 Membros</p>
+          <p className='text-center font-sans text-xs'>56 Membros</p>
         </div>
       </OrbitingCircles>
     </div>
