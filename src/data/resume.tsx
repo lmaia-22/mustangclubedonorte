@@ -69,7 +69,7 @@ export const DATA = {
   navbar: [
     { href: '/', icon: HomeIcon, label: 'Home' },
     { href: '/blog', icon: NotebookIcon, label: 'Blog' },
-    { href: '/form', icon: PenIcon, label: 'Form' },
+    // { href: '/form', icon: PenIcon, label: 'Form' },
     // { href: '/members', icon: PersonStandingIcon, label: 'Membros' },
   ],
   contact: {

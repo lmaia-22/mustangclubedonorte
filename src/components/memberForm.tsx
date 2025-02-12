@@ -138,7 +138,7 @@ export function ProfileForm() {
             render={({ field }) => (
               <FormItem className='flex flex-col'>
                 <FormLabel className='mx-auto text-center text-black'>
-                  Nome
+                  Primeiro Nome
                 </FormLabel>
                 <FormControl>
                   <Input placeholder='Fábio' {...field} />
@@ -154,7 +154,7 @@ export function ProfileForm() {
             render={({ field }) => (
               <FormItem className='flex flex-col'>
                 <FormLabel className='mx-auto text-center text-black'>
-                  Sobrenome
+                  Último Nome
                 </FormLabel>
                 <FormControl>
                   <Input placeholder='Santos' {...field} />
