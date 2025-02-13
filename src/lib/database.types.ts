@@ -6,6 +6,7 @@ export type Database = {
           id: number
           first_name: string
           last_name: string
+          birthdate: Date
           email: string
           phone: string
           brand: string
@@ -19,6 +20,7 @@ export type Database = {
         Insert: {
           first_name: string
           last_name: string
+          birthdate: Date
           email: string
           phone: string
           brand: string

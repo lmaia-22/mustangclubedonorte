@@ -16,6 +16,15 @@ import { Input } from '@/components/ui/input';
 import { CoolMode } from './magicui/cool-mode';
 import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 import { Database } from '@/lib/database.types';
+import { format } from "date-fns";
+import { Calendar } from "@/components/ui/calendar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
+import { CalendarIcon } from "lucide-react";
 
 const formSchema = z
   .object({
@@ -25,6 +34,7 @@ const formSchema = z
     lastName: z.string().min(2, {
         message: 'Nome deve ter mais que 1 caracter.',
     }),
+    birthdate: z.date(),
     email: z.string().email().includes('@', {
         message: 'O email não é válido.',
     }),
@@ -72,8 +82,8 @@ export function ProfileForm() {
   };
 
   const allFieldsFilled = () => {
-    const { firstName, lastName, email, phone, brand, model, year, city, licensePlate } = form.watch();
-    return firstName && lastName && email && phone && brand && model && year && city && licensePlate;
+    const { firstName, lastName, birthdate, email, phone, brand, model, year, city, licensePlate } = form.watch();
+    return firstName && lastName && birthdate && email && phone && brand && model && year && city && licensePlate;
   };
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
@@ -108,6 +118,7 @@ export function ProfileForm() {
         .insert({
           first_name: data.firstName,
           last_name: data.lastName,
+          birthdate: data.birthdate,
           email: data.email,
           phone: data.phone,
           brand: data.brand,
@@ -164,6 +175,48 @@ export function ProfileForm() {
                 <FormControl>
                   <Input placeholder='Santos' {...field} />
                 </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="birthdate"
+            render={({ field }) => (
+              <FormItem className="flex flex-col">
+                <FormLabel className="mx-auto text-center text-black">Data de Nascimento</FormLabel>
+                <Popover>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant={"outline"}
+                        className={cn(
+                          "w-full pl-3 text-left font-normal bg-primary",
+                          !field.value && "text-muted-foreground"
+                        )}
+                      >
+                        {field.value ? (
+                          format(field.value, "dd/MM/yyyy")
+                        ) : (
+                          <span>Selecione uma data</span>
+                        )}
+                        <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className="w-auto p-0" align="start">
+                    <Calendar
+                      mode="single"
+                      selected={field.value}
+                      onSelect={field.onChange}
+                      disabled={(date) =>
+                        date > new Date() || date < new Date("1900-01-01")
+                      }
+                      initialFocus
+                    />
+                  </PopoverContent>
+                </Popover>
                 <FormMessage />
               </FormItem>
             )}
