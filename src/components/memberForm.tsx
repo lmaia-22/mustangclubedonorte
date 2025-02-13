@@ -185,7 +185,7 @@ export function ProfileForm() {
             name="birthdate"
             render={({ field }) => (
               <FormItem className="flex flex-col">
-                <FormLabel className="mx-auto text-center text-black">Data de Nascimento</FormLabel>
+                <FormLabel className="mx-auto text-center text-black">Data de Nascimento(min 18 anos)</FormLabel>
                 <Popover open={isOpen} onOpenChange={setIsOpen}>
                   <PopoverTrigger asChild>
                     <FormControl>
@@ -210,14 +210,18 @@ export function ProfileForm() {
                       mode="single"
                       captionLayout="dropdown"
                       selected={field.value}
-                      onSelect={field.onChange}
-                      disabled={(date) =>
-                        date > new Date() || date < new Date("1900-01-01")
-                      }
-                      onDayClick={() => setIsLoading(false)}
-                      fromYear={1950}
-                      toYear={new Date().getFullYear()}
-                      defaultMonth={field.value}
+                      onSelect={(date) => {
+                        field.onChange(date);
+                        setIsOpen(false);
+                      }}
+                      disabled={(date) => {
+                        const today = new Date();
+                        const minAge = new Date(today.getFullYear() - 18, today.getMonth(), today.getDate());
+                        return date > minAge || date < new Date("1900-01-01");
+                      }}
+                      fromYear={1900}
+                      toYear={new Date().getFullYear() - 18}
+                      defaultMonth={new Date(new Date().getFullYear() - 18, new Date().getMonth(), new Date().getDate())}
                       initialFocus
                     />
                   </PopoverContent>
