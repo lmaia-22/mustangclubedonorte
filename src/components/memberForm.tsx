@@ -192,7 +192,7 @@ export function ProfileForm() {
                       <Button
                         variant={"outline"}
                         className={cn(
-                          "w-full pl-3 text-left font-normal bg-primary",
+                          "w-full pl-3 text-left font-normal bg-white",
                           !field.value && "text-muted-foreground"
                         )}
                       >
