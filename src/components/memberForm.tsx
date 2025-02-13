@@ -89,8 +89,6 @@ export function ProfileForm() {
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
     try {
-
-      console.log(data)
       setIsLoading(true);
       
       let imageUrl = null;
