@@ -74,6 +74,7 @@ export function ProfileForm() {
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>, field: any) => {
     if (e.target.files) {
@@ -88,6 +89,8 @@ export function ProfileForm() {
 
   async function onSubmit(data: z.infer<typeof formSchema>) {
     try {
+
+      console.log(data)
       setIsLoading(true);
       
       let imageUrl = null;
@@ -179,14 +182,13 @@ export function ProfileForm() {
               </FormItem>
             )}
           />
-
           <FormField
             control={form.control}
             name="birthdate"
             render={({ field }) => (
               <FormItem className="flex flex-col">
                 <FormLabel className="mx-auto text-center text-black">Data de Nascimento</FormLabel>
-                <Popover>
+                <Popover open={isOpen} onOpenChange={setIsOpen}>
                   <PopoverTrigger asChild>
                     <FormControl>
                       <Button
@@ -208,11 +210,16 @@ export function ProfileForm() {
                   <PopoverContent className="w-auto p-0" align="start">
                     <Calendar
                       mode="single"
+                      captionLayout="dropdown"
                       selected={field.value}
                       onSelect={field.onChange}
                       disabled={(date) =>
                         date > new Date() || date < new Date("1900-01-01")
                       }
+                      onDayClick={() => setIsLoading(false)}
+                      fromYear={1950}
+                      toYear={new Date().getFullYear()}
+                      defaultMonth={field.value}
                       initialFocus
                     />
                   </PopoverContent>
