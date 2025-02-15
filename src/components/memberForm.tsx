@@ -14,7 +14,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { CoolMode } from './magicui/cool-mode';
-import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
+import { createClient } from '@/lib/supabase/client'
 import { Database } from '@/lib/database.types';
 import { format } from "date-fns";
 import { Calendar } from "@/components/ui/calendar";
@@ -56,7 +56,7 @@ const formSchema = z
   })
 
 export function ProfileForm() {
-  const supabase = createClientComponentClient<Database>();
+  const supabase = createClient()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -192,12 +192,12 @@ export function ProfileForm() {
                       <Button
                         variant={"outline"}
                         className={cn(
-                          "w-full pl-3 text-left font-normal bg-white",
+                          "w-full pl-3 text-left font-normal bg-white text-black",
                           !field.value && "text-muted-foreground"
                         )}
                       >
                         {field.value ? (
-                          format(field.value, "dd/MM/yyyy")
+                          <span className="text-black">{format(field.value, "dd/MM/yyyy")}</span>
                         ) : (
                           <span>Selecione uma data</span>
                         )}
