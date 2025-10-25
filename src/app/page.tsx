@@ -8,21 +8,24 @@ import { Badge } from '@/components/ui/badge';
 import { DATA } from '@/data/resume';
 import Markdown from 'react-markdown';
 import { MarqueeDemo } from '@/components/portfolio';
+import { useLanguage } from '@/contexts/language-context';
 
 const BLUR_FADE_DELAY = 0.8;
 
 export default function Page() {
+  const { t } = useLanguage();
+  
   return (
     <main className='flex min-h-[100dvh] flex-col space-y-10'>
       <section id='hero'>
         <div className='mx-auto w-full space-y-8'>
           <div className='flex flex-col items-center justify-between md:flex-row md:gap-2'>
             <div className='flex flex-1 flex-col items-center justify-center space-y-1.5 md:text-left'>
-              <h1 className='mb-4 text-center text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none'>{DATA.name}</h1>
+              <h1 className='mb-4 text-center text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none'>{t('hero.title')}</h1>
               <BlurFadeText
                 className='max-w-[600px] text-center md:text-xl'
                 delay={BLUR_FADE_DELAY}
-                text={DATA.description}
+                text={t('hero.description')}
               />
             </div>
           </div>
@@ -33,25 +36,25 @@ export default function Page() {
           <div className='flex flex-col items-center justify-center space-y-4 text-center'>
             <div className='space-y-2'>
               <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background'>
-                Sobre
+                {t('about.badge')}
               </div>
               <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                Quem Somos
+                {t('about.title')}
               </h2>
               <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                Como nascemos e como vamos viver
+                {t('about.subtitle')}
               </p>
             </div>
           </div>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
           <Markdown className='prose mt-4 max-w-full text-pretty text-center font-sans text-base text-muted-foreground dark:prose-invert'>
-            {DATA.summary}
+            {t('about.summary')}
           </Markdown>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4} className='my-4'>
           <Markdown className='prose max-w-full text-pretty text-center font-sans text-base text-muted-foreground dark:prose-invert'>
-            {DATA.summary1}
+            {t('about.summary1')}
           </Markdown>
         </BlurFade>
       </section>
@@ -60,14 +63,13 @@ export default function Page() {
           <div className='flex flex-col items-center justify-center space-y-4 text-center'>
             <div className='space-y-2'>
               <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background'>
-                Missão
+                {t('mission.badge')}
               </div>
               <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                Principais Objetivos
+                {t('mission.title')}
               </h2>
               <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                Como em todos os bons projetos devem existir objectivos e nós temos
-                estes.
+                {t('mission.subtitle')}
               </p>
             </div>
           </div>
@@ -78,7 +80,7 @@ export default function Page() {
               key='mission1'
               className='w-full max-w-[500px] text-pretty text-center font-sans text-base text-muted-foreground'
             >
-              {DATA.mission1}
+              {t('mission.1')}
             </li>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
@@ -86,7 +88,7 @@ export default function Page() {
               key='mission2'
               className='w-full max-w-[500px] text-pretty text-center font-sans text-base text-muted-foreground'
             >
-              {DATA.mission2}
+              {t('mission.2')}
             </li>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
@@ -94,7 +96,7 @@ export default function Page() {
               key='mission3'
               className='w-full max-w-[500px] text-pretty text-center font-sans text-base text-muted-foreground'
             >
-              {DATA.mission3}
+              {t('mission.3')}
             </li>
           </BlurFade>
         </ul>
@@ -105,13 +107,13 @@ export default function Page() {
             <div className='flex flex-col items-center justify-center space-y-4 text-center'>
               <div className='space-y-2'>
                 <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background'>
-                  Clube
+                  {t('metrics.badge')}
                 </div>
                 <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                  Métricas
+                  {t('metrics.title')}
                 </h2>
                 <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                  {DATA.metrics}
+                  {t('metrics.subtitle')}
                 </p>
               </div>
             </div>
@@ -127,13 +129,13 @@ export default function Page() {
             <div className='flex flex-col items-center justify-center space-y-4 text-center'>
               <div className='space-y-2'>
                 <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background'>
-                  Conquistas
+                  {t('skills.badge')}
                 </div>
                 <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                  Cidades Conquistadas
+                  {t('skills.title')}
                 </h2>
                 <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                  Devagar se vai ao longe, vamos conquistar Portugal inteiro!
+                  {t('skills.subtitle')}
                 </p>
               </div>
             </div>
@@ -153,14 +155,13 @@ export default function Page() {
             <div className='flex flex-col items-center justify-center space-y-4 text-center'>
               <div className='space-y-2'>
                 <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background'>
-                  Portfolio
+                  {t('portfolio.badge')}
                 </div>
                 <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                  Espreitem as nossas melhores &apos;chapas&apos;!
+                  {t('portfolio.title')}
                 </h2>
                 <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                  As fotografias tiradas pelo nosso fotógrafo
-                  do Clube e também alguns membros.
+                  {t('portfolio.subtitle')}
                 </p>
               </div>
             </div>
@@ -178,29 +179,36 @@ export default function Page() {
             <div className='flex flex-col items-center justify-center space-y-4 text-center'>
               <div className='space-y-2'>
                 <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background'>
-                  FAQ
+                  {t('faq.badge')}
                 </div>
                 <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                  Questões mais frequentes
+                  {t('faq.title')}
                 </h2>
                 <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                  Como tirar as dúvidas de forma rápida.
+                  {t('faq.subtitle')}
                 </p>
               </div>
             </div>
           </BlurFade>
           <div className='container mx-auto px-4'>
             <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
-              {DATA.faq.map((work, id) => (
+              {[
+                { q: 'faq.q1', a: 'faq.a1' },
+                { q: 'faq.q2', a: 'faq.a2' },
+                { q: 'faq.q3', a: 'faq.a3' },
+                { q: 'faq.q4', a: 'faq.a4' },
+                { q: 'faq.q5', a: 'faq.a5' },
+                { q: 'faq.q6', a: 'faq.a6' },
+              ].map((item, id) => (
                 <BlurFade
-                  key={work.question}
+                  key={item.q}
                   delay={BLUR_FADE_DELAY * 6 + id * 0.05}
                 >
                   <div className='flex h-full w-full'>
                     <ResumeCard
-                      key={work.question}
-                      title={work.question}
-                      description={work.answer}
+                      key={item.q}
+                      title={t(item.q)}
+                      description={t(item.a)}
                     />
                   </div>
                 </BlurFade>
@@ -212,18 +220,28 @@ export default function Page() {
       <section id='spotify'>
         <div className='relative w-full text-center'>
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
-            <div className='space-y-3'>
-              <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background'>
-                Spotify
-              </div>
-              <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                A playlist favorita dos nossos carros
-              </h2>
-              <p className='mx-auto mb-4 max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                Não se esqueça de adicionar aos favoritos
-              </p>
+              <div className='space-y-3'>
+                <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background'>
+                  {t('spotify.badge')}
+                </div>
+                <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
+                  {t('spotify.title')}
+                </h2>
+                <p className='mx-auto mb-4 max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
+                  {t('spotify.subtitle')}
+                </p>
               <div className='relative mx-auto max-w-md rounded-lg'>
-                <iframe data-testid="embed-iframe" src="https://open.spotify.com/embed/playlist/0sFvlfRxkQ8yInfiGXKTtE?utm_source=generator" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>            </div>
+                <iframe 
+                  data-testid="embed-iframe" 
+                  src="https://open.spotify.com/embed/playlist/0sFvlfRxkQ8yInfiGXKTtE?utm_source=generator" 
+                  width="100%" 
+                  height="352" 
+                  frameBorder="0" 
+                  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                  loading="lazy"
+                  className="rounded-lg"
+                />
+              </div>
               </div>
             </BlurFade>
         </div>
@@ -233,13 +251,13 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className='space-y-3'>
               <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background'>
-                Contactos
+                {t('contact.badge')}
               </div>
               <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-                Entre em contacto
+                {t('contact.title')}
               </h2>
               <p className='mx-auto mb-8 max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-                Se quer saber mais sobre o clube ou entrar nele, contacte-nos através das nossas redes sociais ou através do nosso email.
+                {t('contact.subtitle')}
               </p>
             </div>
           </BlurFade>

@@ -8,7 +8,10 @@ import {
   faCalendarDays,
   faRoad,
 } from '@fortawesome/free-solid-svg-icons';
+import { useLanguage } from '@/contexts/language-context';
 export function OrbitingMetrics() {
+  const { t } = useLanguage();
+  
   return (
     <div className='relative flex h-[500px] w-full flex-col items-center justify-center rounded-lg bg-background'>
       <span className='pointer-events-none whitespace-pre-wrap bg-gradient-to-b from-black to-gray-300 bg-clip-text text-center text-8xl font-semibold leading-none text-transparent dark:from-white dark:to-black'>
@@ -27,7 +30,7 @@ export function OrbitingMetrics() {
       >
         <div className='items-center justify-center'>
           <FontAwesomeIcon icon={faCalendarDays} />
-          <p className='text-center font-sans text-xs'>9 Passeios</p>
+          <p className='text-center font-sans text-xs'>{t('metrics.tours')}</p>
         </div>
       </OrbitingCircles>
       <OrbitingCircles
@@ -38,7 +41,7 @@ export function OrbitingMetrics() {
       >
         <div className='items-center justify-center'>
           <FontAwesomeIcon icon={faRoad} />
-          <p className='text-center font-sans text-xs'>1020 Quilómetros</p>
+          <p className='text-center font-sans text-xs'>{t('metrics.kilometers')}</p>
         </div>
       </OrbitingCircles>
 
@@ -51,7 +54,7 @@ export function OrbitingMetrics() {
       >
         <div className='items-center justify-center'>
           <FontAwesomeIcon icon={faClock} />
-          <p className='text-center font-sans text-xs'>160 Horas</p>
+          <p className='text-center font-sans text-xs'>{t('metrics.hours')}</p>
         </div>
       </OrbitingCircles>
       <OrbitingCircles
@@ -63,7 +66,7 @@ export function OrbitingMetrics() {
       >
         <div className='items-center justify-center'>
           <FontAwesomeIcon icon={faUserGroup} />
-          <p className='text-center font-sans text-xs'>56 Membros</p>
+          <p className='text-center font-sans text-xs'>{t('metrics.members')}</p>
         </div>
       </OrbitingCircles>
     </div>

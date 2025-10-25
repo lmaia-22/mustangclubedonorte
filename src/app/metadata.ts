@@ -4,11 +4,11 @@ import type { Metadata as typeMetadata } from 'next';
 export const Metadata: typeMetadata = {
   metadataBase: new URL(DATA.url),
   title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
+    default: 'Mustang Clube Do Norte | Mustang Club of the North',
+    template: `%s | Mustang Clube Do Norte`,
   },
   
-  description: DATA.description,
+  description: 'We are a vibrant community of enthusiasts for one of the most iconic automotive icons in the world: the Ford Mustang. From the unmistakable engine roar to the classic lines that define its design, every detail of Mustangs awakens a passion that we decided to celebrate together.',
   openGraph: {
     title: `${DATA.name}`,
     description: DATA.description,
@@ -35,8 +35,26 @@ export const Metadata: typeMetadata = {
     images: `${DATA.url}/bk.jpeg`,
   },
   verification: {
-    google: '',
+    google: 'G-1V0LZJSJ4N',
   },
+  other: {
+    'google-site-verification': 'G-1V0LZJSJ4N',
+  },
+  keywords: [
+    'Mustang',
+    'Ford Mustang',
+    'Clube Automóvel',
+    'Norte Portugal',
+    'Carros Clássicos',
+    'Mustang Portugal',
+    'Automóveis',
+    'Carros Antigos',
+    'Mustang Clube',
+    'Comunidade Automóvel'
+  ],
+  authors: [{ name: 'Mustang Clube Do Norte' }],
+  creator: 'Mustang Clube Do Norte',
+  publisher: 'Mustang Clube Do Norte',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',

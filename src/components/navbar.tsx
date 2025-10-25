@@ -15,11 +15,14 @@ import {
 import { DATA } from '@/data/resume';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
+import { LanguageToggle } from '@/components/language-toggle';
+import { useLanguage } from '@/contexts/language-context';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Navbar() {
   const navbarRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (navbarRef.current) {
@@ -68,7 +71,7 @@ export default function Navbar() {
                 </Link>
               </TooltipTrigger>
               <TooltipContent>
-                <p>{item.label}</p>
+                <p>{t(item.label.toLowerCase().replace(' ', '.'))}</p>
               </TooltipContent>
             </Tooltip>
           </DockIcon>
@@ -98,6 +101,16 @@ export default function Navbar() {
             </DockIcon>
           ))}
         <Separator orientation='vertical' className='h-full py-2' />
+        <DockIcon>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <LanguageToggle />
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{t('nav.language')}</p>
+            </TooltipContent>
+          </Tooltip>
+        </DockIcon>
         <DockIcon>
           <Tooltip>
             <TooltipTrigger asChild>

@@ -1,5 +1,5 @@
 import { Icons } from '@/components/icons';
-import { HomeIcon, PenIcon } from 'lucide-react';
+import { HomeIcon, ContactIcon, CameraIcon, UsersRoundIcon } from 'lucide-react';
 
 export const DATA = {
   name: 'Mustang Clube Do Norte',
@@ -40,6 +40,9 @@ export const DATA = {
   ],
   navbar: [
     { href: '/', icon: HomeIcon, label: 'Home' },
+    { href: '#about', icon: UsersRoundIcon, label: 'Sobre' },
+    { href: '#projects', icon: CameraIcon, label: 'Portfolio' },
+    { href: '#contact', icon: ContactIcon, label: 'Contacto' },
   ],
   contact: {
     email: 'mustangclubedonorte@gmail.com',
@@ -51,17 +54,10 @@ export const DATA = {
 
         navbar: true,
       },
-      Tiktok: {
-        name: 'Tiktok',
-        url: 'https://www.tiktok.com/@mustangclubedonorte',
-        icon: Icons.tiktok,
-
-        navbar: true,
-      },
-      X: {
-        name: 'X',
-        url: 'https://x.com/ClubeMustangNP',
-        icon: Icons.x,
+      Email: {
+        name: 'Email',
+        url: 'mailto:mustangclubedonorte@gmail.com',
+        icon: Icons.email,
 
         navbar: true,
       },

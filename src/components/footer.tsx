@@ -69,20 +69,11 @@ export default function footer() {
                       Instagram
                     </a>
                   </li>
-                  <li key='tiktok'>
-                    <a
-                      className='cursor-pointer text-sm font-[450] text-gray-400 duration-200 hover:text-gray-200'
-                      target='_blank'
-                      href='https://www.tiktok.com/@mustangclubedonorte'
-                    >
-                      Tiktok
-                    </a>
-                  </li>
                   <li key='email'>
                     <a
                       className='cursor-pointer text-sm font-[450] text-gray-400 duration-200 hover:text-gray-200'
                       target='_blank'
-                      href='mailto:mustangclubedonorte@gamil.com'
+                      href='mailto:mustangclubedonorte@gmail.com'
                     >
                       Email
                     </a>
