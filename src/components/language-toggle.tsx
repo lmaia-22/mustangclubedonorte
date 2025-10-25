@@ -15,11 +15,13 @@ export const LanguageToggle: React.FC = () => {
     <Button 
       variant="ghost" 
       size="icon" 
-      className="size-12 font-bold text-sm"
+      className="size-12 font-bold text-sm transition-all duration-300 hover:scale-110 hover:bg-accent/50 hover:shadow-lg"
       onClick={toggleLanguage}
       title={`Switch to ${language === 'pt' ? 'English' : 'Português'}`}
     >
-      {language === 'pt' ? 'EN' : 'PT'}
+      <span className="transition-transform duration-300 hover:scale-110">
+        {language === 'pt' ? 'EN' : 'PT'}
+      </span>
     </Button>
   );
 };

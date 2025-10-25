@@ -76,7 +76,7 @@ const ReviewCard = ({ img }: { img: string }) => {
   return (
     <figure
       className={cn(
-        'w-34 relative h-32 cursor-pointer overflow-hidden rounded-lg border',
+        'w-34 relative h-32 cursor-pointer overflow-hidden rounded-lg border transition-all duration-500 hover:scale-105 hover:shadow-xl',
         // light styles
         'border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]',
         // dark styles
@@ -88,8 +88,9 @@ const ReviewCard = ({ img }: { img: string }) => {
         src={img}
         width={200}
         height={300}
-        className='h-full w-full object-cover object-center'
+        className='h-full w-full object-cover object-center transition-transform duration-500 hover:scale-110'
       />
+      <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100' />
     </figure>
   );
 };
