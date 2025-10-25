@@ -45,14 +45,6 @@ export default function footer() {
                       Sobre
                     </a>
                   </li>
-                  <li key='eventos'>
-                    <a
-                      className='cursor-pointer text-sm font-[450] text-gray-400 duration-200 hover:text-gray-200'
-                      href='#eventos'
-                    >
-                      Eventos
-                    </a>
-                  </li>
                   <li key='faq'>
                     <a
                       className='cursor-pointer text-sm font-[450] text-gray-400 duration-200 hover:text-gray-200'
