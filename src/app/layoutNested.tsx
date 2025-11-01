@@ -15,6 +15,7 @@ import Navbar from '@/components/navbar';
 import { ThemeProvider } from '@/components/theme-provider';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { ErrorBoundary } from '@/components/error-boundary';
+import { ServiceWorkerRegister } from '@/components/service-worker-register';
 import { cn } from '@/lib/utils';
 
 const fontSans = FontSans({
@@ -105,13 +106,15 @@ export default function RootLayout({
             )}
           >
             <ErrorBoundary>
-              <ThemeProvider attribute='class' defaultTheme='dark'>
-                <TooltipProvider delayDuration={0}>
-                  {children}
-                  <Navbar />
-                </TooltipProvider>
-                <Footer />
-              </ThemeProvider>
+              <ServiceWorkerRegister>
+                <ThemeProvider attribute='class' defaultTheme='dark'>
+                  <TooltipProvider delayDuration={0}>
+                    {children}
+                    <Navbar />
+                  </TooltipProvider>
+                  <Footer />
+                </ThemeProvider>
+              </ServiceWorkerRegister>
             </ErrorBoundary>
           </div>
           <Toaster />
