@@ -25,7 +25,21 @@ const FullscreenVideo = React.forwardRef<HTMLDivElement, FullscreenVideoProps>(
       const arrowElement = arrowRef.current;
 
       if (videoElement) {
-        videoElement.onloadeddata = () => setIsVideoLoaded(true); // Set state when video is loaded
+        // Use loadedmetadata for faster initial display
+        // Video can start playing while still buffering
+        const handleVideoReady = () => {
+          setIsVideoLoaded(true);
+        };
+
+        // Try multiple events for better compatibility
+        if (videoElement.readyState >= 1) {
+          // Metadata already loaded
+          handleVideoReady();
+        } else {
+          // Using { once: true } so listeners auto-remove after first call
+          videoElement.addEventListener('loadedmetadata', handleVideoReady, { once: true });
+          videoElement.addEventListener('loadeddata', handleVideoReady, { once: true });
+        }
 
         // Video and GSAP animations
         if (isVideoLoaded && infoTextElement && arrowElement) {
@@ -84,22 +98,33 @@ const FullscreenVideo = React.forwardRef<HTMLDivElement, FullscreenVideoProps>(
       }
 
       return () => {
+        // Event listeners auto-cleanup due to { once: true }
+        // Cleanup GSAP animations
         gsap.killTweensOf(videoElement);
         gsap.killTweensOf(infoTextElement);
         gsap.killTweensOf(arrowElement);
+        // Cleanup ScrollTrigger instances
+        ScrollTrigger.getAll().forEach(trigger => {
+          if (trigger.vars?.trigger === videoElement) {
+            trigger.kill();
+          }
+        });
       };
-    }, [isVideoLoaded]); // Re-run the effect when the video is loaded
+    }, [isVideoLoaded, videoSrc]); // Re-run the effect when the video is loaded or src changes
 
     return (
       <div ref={ref} className='relative h-screen w-screen'>
         <video
           ref={videoRef}
           src={videoSrc}
-          className='left-0 top-0 h-full w-full object-cover opacity-0'
+          className='left-0 top-0 h-full w-full object-cover opacity-0 will-change-transform'
           autoPlay
           muted
           loop
-        ></video>
+          playsInline
+          preload="metadata"
+          aria-label="Background video"
+        />
         {isVideoLoaded && (
           <div ref={infoTextRef} className='absolute inset-x-0 bottom-0 text-center'>
             <BlurFade delay={BLUR_FADE_DELAY}>

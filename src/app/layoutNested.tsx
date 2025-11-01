@@ -30,31 +30,55 @@ export default function RootLayout({
   const isMobile = useIsMobile();
 
   useEffect(() => {
-    const imageUrl = isMobile ? DATA.firstRenderUrlMobile : DATA.firstRenderUrl;
+    const video = document.createElement('video');
+    video.src = DATA.videoUrl;
+    video.preload = 'metadata'; // Only load metadata, not full video
+    video.muted = true; // Required for autoplay
 
-    const img = new Image();
-    img.src = imageUrl;
+    // Use loadedmetadata instead of canplaythrough for faster initial load
+    // This only waits for metadata, allowing page to show faster
+    const videoLoadPromise = new Promise<void>((resolve, reject) => {
+      const onMetadataLoaded = () => {
+        video.removeEventListener('loadedmetadata', onMetadataLoaded);
+        video.removeEventListener('error', onError);
+        resolve();
+      };
 
-    // Ensure all promises complete
-    const imageLoadPromise = new Promise<void>((resolve, reject) => {
-      img.onload = () => resolve();
-      img.onerror = reject;
+      const onError = () => {
+        video.removeEventListener('loadedmetadata', onMetadataLoaded);
+        video.removeEventListener('error', onError);
+        // Don't reject, just resolve to show page even if video fails
+        resolve();
+      };
+
+      video.addEventListener('loadedmetadata', onMetadataLoaded, { once: true });
+      video.addEventListener('error', onError, { once: true });
+      
+      // Load the video metadata
+      video.load();
+
+      // Fallback timeout to prevent infinite loading
+      setTimeout(() => {
+        if (video.readyState === 0) {
+          onError();
+        }
+      }, 3000);
     });
 
-    // Set loading state once all assets are loaded
-    Promise.all([imageLoadPromise])
+    // Set loading state once metadata is loaded
+    Promise.all([videoLoadPromise])
       .then(() => {
         setIsLoading(false);
       })
       .catch((error) => {
-        console.error('Error loading assets', error);
-        setIsLoading(false); // Still hide loader on error
+        console.error('Error loading video', error);
+        setIsLoading(false); // Always hide loader
       });
 
     // Cleanup on component unmount
     return () => {
-      img.onload = null;
-      img.onerror = null;
+      video.src = '';
+      video.load();
     };
   }, []);
 
@@ -72,11 +96,6 @@ export default function RootLayout({
           {!isMobile && (
             <ScrollLogo logoSrc={DATA.avatarUrl} altText='Small Logo' />
           )}
-          <FullScreenImage
-            imageUrl={
-              isMobile ? DATA.firstRenderUrlMobile : DATA.firstRenderUrl
-            }
-          />
           <FullscreenVideo videoSrc={DATA.videoUrl} />
           <div
             className={cn(

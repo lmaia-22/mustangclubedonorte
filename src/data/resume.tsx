@@ -18,8 +18,6 @@ export const DATA = {
   mission1: 'Unir fanáticos de Mustangs através de encontros e convívio.',
   mission2: 'Proporcionar momentos de pura adrenalina e convívio.',
   mission3: 'Oferecer uma plataforma para compartilhar conhecimentos e experiências.',
-  firstRenderUrl: '/bk_bigger.png',
-  firstRenderUrlMobile: '/bk_mobile.png',
   avatarUrl: '/logo_no_bk.png',
   videoUrl: '/mustang.mp4',
   skills: [
