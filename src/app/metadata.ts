@@ -15,8 +15,16 @@ export const Metadata: typeMetadata = {
     url: DATA.url,
     siteName: `${DATA.name}`,
     locale: 'pt_PT',
+    alternateLocale: 'en_US',
     type: 'website',
-    images: `${DATA.url}/bk.jpeg`,
+    images: [
+      {
+        url: `${DATA.url}/bk.jpeg`,
+        width: 1200,
+        height: 630,
+        alt: DATA.name,
+      },
+    ],
   },
   robots: {
     index: true,
@@ -32,13 +40,11 @@ export const Metadata: typeMetadata = {
   twitter: {
     title: `${DATA.name}`,
     card: 'summary_large_image',
-    images: `${DATA.url}/bk.jpeg`,
+    images: [`${DATA.url}/bk.jpeg`],
+    description: DATA.description,
   },
   verification: {
     google: 'G-1V0LZJSJ4N',
-  },
-  other: {
-    'google-site-verification': 'G-1V0LZJSJ4N',
   },
   keywords: [
     'Mustang',
@@ -55,12 +61,25 @@ export const Metadata: typeMetadata = {
   authors: [{ name: 'Mustang Clube Do Norte' }],
   creator: 'Mustang Clube Do Norte',
   publisher: 'Mustang Clube Do Norte',
+  manifest: '/site.webmanifest',
   icons: {
     icon: '/favicon.ico',
     apple: '/apple-touch-icon.png',
     other: [
       { rel: 'icon', url: '/favicon-32x32.png', sizes: '32x32' },
       { rel: 'icon', url: '/favicon-16x16.png', sizes: '16x16' },
+      { rel: 'manifest', url: '/site.webmanifest' },
     ],
+  },
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: 'black-translucent',
+    title: 'MCdN',
+  },
+  other: {
+    'google-site-verification': 'G-1V0LZJSJ4N',
+    'mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-capable': 'yes',
+    'apple-mobile-web-app-status-bar-style': 'black-translucent',
   },
 };

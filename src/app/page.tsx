@@ -16,7 +16,13 @@ export default function Page() {
   const { t } = useLanguage();
   
   return (
-    <main className='flex min-h-[100dvh] flex-col space-y-10'>
+    <main className='flex min-h-[100dvh] flex-col space-y-10' role='main'>
+      <a 
+        href='#hero' 
+        className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:outline-none focus:ring-2 focus:ring-ring'
+      >
+        Skip to main content
+      </a>
       <section id='hero'>
         <div className='mx-auto w-full space-y-8'>
           <div className='flex flex-col items-center justify-between md:flex-row md:gap-2'>
@@ -58,7 +64,7 @@ export default function Page() {
           </Markdown>
         </BlurFade>
       </section>
-      <section id='misson'>
+      <section id='mission'>
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <div className='flex flex-col items-center justify-center space-y-4 text-center'>
             <div className='space-y-2'>
@@ -240,6 +246,8 @@ export default function Page() {
                   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                   loading="lazy"
                   className="rounded-lg"
+                  title="Spotify playlist - Mustang Clube do Norte"
+                  aria-label="Spotify playlist embed"
                 />
               </div>
               </div>
@@ -259,6 +267,45 @@ export default function Page() {
               <p className='mx-auto mb-8 max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
                 {t('contact.subtitle')}
               </p>
+              <div className='flex flex-col items-center space-y-6'>
+                {/* Email Contact */}
+                <BlurFade delay={BLUR_FADE_DELAY * 17}>
+                  <a
+                    href={`mailto:${DATA.contact.email}`}
+                    className='flex items-center space-x-3 p-4 rounded-lg bg-muted/50 hover:bg-muted transition-all duration-300 hover:scale-105 hover:shadow-lg group'
+                    aria-label={`Send email to ${DATA.contact.email}`}
+                  >
+                    <svg className='h-6 w-6 transition-transform duration-300 group-hover:scale-110' fill='none' stroke='currentColor' viewBox='0 0 24 24' aria-hidden='true'>
+                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' />
+                    </svg>
+                    <span className='text-lg font-medium hover:underline transition-all duration-300 group-hover:text-primary'>
+                      {DATA.contact.email}
+                    </span>
+                  </a>
+                </BlurFade>
+
+                {/* Social Media Links */}
+                <BlurFade delay={BLUR_FADE_DELAY * 18}>
+                  <div className='flex flex-wrap justify-center gap-4 sm:gap-6'>
+                    {Object.entries(DATA.contact.social)
+                      .filter(([_, social]) => social.navbar)
+                      .map(([name, social], index) => (
+                        <BlurFade key={social.name} delay={BLUR_FADE_DELAY * 19 + index * 0.1}>
+                          <a
+                            href={social.url}
+                            target='_blank'
+                            rel='noopener noreferrer'
+                            className='flex flex-col items-center space-y-2 p-3 sm:p-4 rounded-lg bg-muted/50 hover:bg-muted transition-all duration-300 hover:scale-110 hover:shadow-lg min-w-[80px] group'
+                            aria-label={`Visit our ${social.name} page`}
+                          >
+                            <social.icon className='h-6 w-6 sm:h-8 sm:w-8 transition-transform duration-300 group-hover:scale-110' aria-hidden='true' />
+                            <span className='text-xs sm:text-sm font-medium text-center transition-colors duration-300 group-hover:text-primary'>{social.name}</span>
+                          </a>
+                        </BlurFade>
+                      ))}
+                  </div>
+                </BlurFade>
+              </div>
             </div>
           </BlurFade>
         </div>

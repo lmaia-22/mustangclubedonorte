@@ -7,20 +7,21 @@ import BlurFade from './magicui/blur-fade';
 
 const BLUR_FADE_DELAY = 2.9;
 
-export default function footer() {
+export default function Footer() {
   return (
     <footer>
       <div className='mx-auto w-full max-w-screen-xl xl:pb-2'>
         <BlurFade delay={BLUR_FADE_DELAY}>
           <div className='gap-4 p-4 px-8 py-16 sm:pb-16 md:flex md:justify-between'>
             <div className='mb-12 flex flex-col gap-4'>
-              <a className='flex items-center gap-2' href='/'>
+              <a className='flex items-center gap-2' href='/' aria-label='Go to home page'>
                 <Image
                   src='/logo_no_bk.png'
                   width={100}
                   height={80}
                   className='h-8 w-12 text-primary'
-                  alt='Logo'
+                  alt='Mustang Clube do Norte logo'
+                  priority
                 />
                 <span className='self-center whitespace-nowrap text-xl font-semibold dark:text-white'>
                   Mustang Clube do Norte
@@ -64,7 +65,9 @@ export default function footer() {
                     <a
                       className='cursor-pointer text-sm font-[450] text-gray-400 duration-200 hover:text-gray-200'
                       target='_blank'
+                      rel='noopener noreferrer'
                       href='https://www.instagram.com/mustangclubedonorte?igsh=MTRxcXE3aHEwcnlxdQ=='
+                      aria-label='Visit our Instagram page'
                     >
                       Instagram
                     </a>
@@ -72,8 +75,8 @@ export default function footer() {
                   <li key='email'>
                     <a
                       className='cursor-pointer text-sm font-[450] text-gray-400 duration-200 hover:text-gray-200'
-                      target='_blank'
                       href='mailto:mustangclubedonorte@gmail.com'
+                      aria-label='Send email to mustangclubedonorte@gmail.com'
                     >
                       Email
                     </a>

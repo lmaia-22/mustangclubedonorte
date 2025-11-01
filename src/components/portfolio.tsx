@@ -84,11 +84,13 @@ const ReviewCard = ({ img }: { img: string }) => {
       )}
     >
       <Image
-        alt='Portfolio'
+        alt={`Mustang club portfolio image ${img.split('/').pop()?.replace('.jpg', '')}`}
         src={img}
         width={200}
         height={300}
         className='h-full w-full object-cover object-center transition-transform duration-500 hover:scale-110'
+        loading='lazy'
+        sizes='(max-width: 768px) 150px, 200px'
       />
       <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100' />
     </figure>

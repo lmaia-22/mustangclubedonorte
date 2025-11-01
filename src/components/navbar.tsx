@@ -66,8 +66,9 @@ export default function Navbar() {
                     buttonVariants({ variant: 'ghost', size: 'icon' }),
                     'size-12'
                   )}
+                  aria-label={t(item.label.toLowerCase().replace(' ', '.'))}
                 >
-                  <item.icon className='size-4' />
+                  <item.icon className='size-4' aria-hidden='true' />
                 </Link>
               </TooltipTrigger>
               <TooltipContent>
@@ -86,12 +87,14 @@ export default function Navbar() {
                   <Link
                     href={social.url}
                     target='_blank'
+                    rel='noopener noreferrer'
                     className={cn(
                       buttonVariants({ variant: 'ghost', size: 'icon' }),
                       'size-12'
                     )}
+                    aria-label={`Visit our ${name} page`}
                   >
-                    <social.icon className='size-4' />
+                    <social.icon className='size-4' aria-hidden='true' />
                   </Link>
                 </TooltipTrigger>
                 <TooltipContent>
