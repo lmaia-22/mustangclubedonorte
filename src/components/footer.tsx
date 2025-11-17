@@ -12,14 +12,14 @@ export default function Footer() {
     <footer>
       <div className='mx-auto w-full max-w-screen-xl xl:pb-2'>
         <BlurFade delay={BLUR_FADE_DELAY}>
-          <div className='gap-4 p-4 px-8 py-16 sm:pb-16 md:flex md:justify-between'>
+          <div className='gap-4 p-4 px-4 sm:px-6 md:px-8 py-16 sm:pb-16 md:flex md:justify-between overflow-x-hidden'>
             <div className='mb-12 flex flex-col gap-4'>
               <a className='flex items-center gap-2' href='/' aria-label='Go to home page'>
                 <Image
                   src='/logo_no_bk.png'
                   width={100}
-                  height={80}
-                  className='h-8 w-12 text-primary'
+                  height={100}
+                  className='h-12 w-12 text-primary'
                   alt='Mustang Clube do Norte logo'
                   priority
                 />
@@ -110,7 +110,7 @@ export default function Footer() {
           </div>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY}>
-          <div className='mb-6 flex flex-col items-center gap-2 rounded-md border-neutral-700/20 px-8 sm:flex-row sm:justify-between'>
+          <div className='mb-6 flex flex-col items-center gap-2 rounded-md border-neutral-700/20 px-4 sm:px-6 md:px-8 sm:flex-row sm:justify-between overflow-x-hidden'>
             <div className='space-x-5 sm:mt-0 sm:justify-center'>
               {Object.entries(DATA.contact.social)
                 .filter(([_, social]) => social.navbar)

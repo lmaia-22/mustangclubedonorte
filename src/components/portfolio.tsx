@@ -11,16 +11,13 @@ const reviews = [
     img: '/portfolio/portfolio-5.jpg',
   },
   {
-    img: '/portfolio/portfolio-6.jpg',
+    img: '/portfolio/portfolio-32.jpg',
   },
   {
     img: '/portfolio/portfolio-11.jpg',
   },
   {
     img: '/portfolio/portfolio-12.jpg',
-  },
-  {
-    img: '/portfolio/portfolio-13.jpg',
   },
   {
     img: '/portfolio/portfolio-14.jpg',
@@ -35,7 +32,7 @@ const reviews = [
     img: '/portfolio/portfolio-19.jpg',
   },
   {
-    img: '/portfolio/portfolio-21.jpg',
+    img: '/portfolio/portfolio-35.jpg',
   },
   {
     img: '/portfolio/portfolio-22.jpg',
@@ -62,10 +59,10 @@ const reviews = [
     img: '/portfolio/portfolio-31.jpg',
   },
   {
-    img: '/portfolio/portfolio-32.jpg',
+    img: '/portfolio/portfolio-36.jpg',
   },
   {
-    img: '/portfolio/portfolio-35.jpg',
+    img: '/portfolio/portfolio-37.jpg',
   },
 ];
 
@@ -99,7 +96,7 @@ const ReviewCard = ({ img }: { img: string }) => {
 
 export function MarqueeDemo() {
   return (
-    <div className='flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow'>
+    <div className='flex h-[500px] w-full max-w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-background md:shadow'>
       <BorderBeam />
       <div className='flex flex-col space-y-4 w-full'>
         <Marquee pauseOnHover className='[--duration:60s]'>

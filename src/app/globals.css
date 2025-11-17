@@ -5,6 +5,16 @@
 /* Smooth scrolling for the entire page */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
 }
 
 /* Custom scrollbar */
@@ -177,7 +187,11 @@ html {
   body {
     @apply bg-background text-foreground; /* Background and text colors */
     @apply scrollbar-hide; /* Apply scrollbar-hide class to hide scrollbars */
-    overflow: auto; /* Ensure scrolling is enabled */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: auto; /* Ensure vertical scrolling is enabled */
+    width: 100%;
+    max-width: 100vw;
+    position: relative;
   }
   /* CSS to hide scrollbar while maintaining scrolling */
   .scrollbar-hide::-webkit-scrollbar {

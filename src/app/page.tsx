@@ -16,7 +16,7 @@ export default function Page() {
   const { t } = useLanguage();
   
   return (
-    <main className='flex min-h-[100dvh] flex-col space-y-10' role='main'>
+    <main className='flex min-h-[100dvh] w-full max-w-full flex-col space-y-10 overflow-x-hidden' role='main'>
       <a 
         href='#hero' 
         className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-primary-foreground focus:rounded-md focus:outline-none focus:ring-2 focus:ring-ring'
@@ -179,7 +179,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section id='faq'>
+      <section id='faq' className='w-full max-w-full scrollbar-hide'>
         <div className='w-full space-y-12 py-4'>
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className='flex flex-col items-center justify-center space-y-4 text-center'>
@@ -196,7 +196,7 @@ export default function Page() {
               </div>
             </div>
           </BlurFade>
-          <div className='container mx-auto px-4'>
+          <div className='container mx-auto w-full max-w-full px-5'>
             <div className='grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3'>
               {[
                 { q: 'faq.q1', a: 'faq.a1' },
@@ -224,7 +224,7 @@ export default function Page() {
         </div>
       </section>
       <section id='spotify'>
-        <div className='relative w-full text-center'>
+        <div className='relative w-full max-w-full text-center'>
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
               <div className='space-y-3'>
               <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
@@ -255,7 +255,7 @@ export default function Page() {
         </div>
       </section>
       <section id='contact'>
-        <div className='relative w-full text-center'>
+        <div className='relative w-full max-w-full text-center'>
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className='space-y-3'>
               <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>

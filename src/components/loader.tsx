@@ -12,7 +12,7 @@ const Loader: React.FC = () => {
       {/* Centered image */}
       <img
         src='/logo_no_bk.png'
-        className='relative z-10 h-20 w-28 lg:h-32 lg:w-40'
+        className='relative z-10 h-28 w-28 lg:h-40 lg:w-40'
         alt='loader'
       />
     </div>

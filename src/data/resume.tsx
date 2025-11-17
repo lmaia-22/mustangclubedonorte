@@ -34,7 +34,7 @@ export const DATA = {
     'Paços de Ferreira',
     'Figueira da Foz',
     'Caminha',
-    'Geres',
+    'Gerês',
   ],
   navbar: [
     { href: '/', icon: HomeIcon, label: 'Home' },

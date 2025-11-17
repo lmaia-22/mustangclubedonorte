@@ -19,9 +19,9 @@ export const Metadata: typeMetadata = {
     type: 'website',
     images: [
       {
-        url: `${DATA.url}/bk.jpeg`,
-        width: 1200,
-        height: 630,
+        url: `${DATA.url}/logo_no_bk.png`,
+        width: 600,
+        height: 600,
         alt: DATA.name,
       },
     ],
@@ -40,7 +40,7 @@ export const Metadata: typeMetadata = {
   twitter: {
     title: `${DATA.name}`,
     card: 'summary_large_image',
-    images: [`${DATA.url}/bk.jpeg`],
+    images: [`${DATA.url}/logo_no_bk.png`],
     description: DATA.description,
   },
   verification: {

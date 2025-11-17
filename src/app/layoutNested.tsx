@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { DATA } from '@/data/resume';
 import { Inter as FontSans } from 'next/font/google';
 import './globals.css';
-import FullScreenImage from '@/components/firstRender';
 import FullscreenVideo from '@/components/video';
 import ScrollLogo from '@/components/logo_on_top_right';
 import { useIsMobile } from '@/hooks/useIsMobile';
@@ -87,7 +86,7 @@ export default function RootLayout({
   return (
       <body
       className={cn(
-        'min-h-screen bg-background font-sans',
+        'min-h-screen w-full max-w-full bg-background font-sans overflow-x-hidden',
         fontSans.variable
       )}
     >
@@ -101,7 +100,7 @@ export default function RootLayout({
           <FullscreenVideo videoSrc={DATA.videoUrl} />
           <div
             className={cn(
-              'sm:py-18 mx-auto min-h-screen max-w-5xl bg-background px-6 py-6 font-sans antialiased',
+              'sm:py-18 mx-auto min-h-screen max-w-5xl bg-background px-4 py-6 sm:px-6 font-sans antialiased overflow-x-hidden',
               fontSans.variable
             )}
           >

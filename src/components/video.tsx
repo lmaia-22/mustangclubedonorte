@@ -113,11 +113,11 @@ const FullscreenVideo = React.forwardRef<HTMLDivElement, FullscreenVideoProps>(
     }, [isVideoLoaded, videoSrc]); // Re-run the effect when the video is loaded or src changes
 
     return (
-      <div ref={ref} className='relative h-screen w-screen'>
+      <div ref={ref} className='relative h-screen w-full max-w-full overflow-hidden'>
         <video
           ref={videoRef}
           src={videoSrc}
-          className='left-0 top-0 h-full w-full object-cover opacity-0 will-change-transform'
+          className='absolute left-0 top-0 h-full w-full object-cover opacity-0 will-change-transform'
           autoPlay
           muted
           loop
