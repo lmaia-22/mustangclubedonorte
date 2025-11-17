@@ -56,27 +56,37 @@ export default function Navbar() {
       className='pointer-events-none fixed inset-x-0 bottom-0 z-30 mx-auto mb-4 flex h-full max-h-14 origin-bottom w-full max-w-full overflow-x-hidden'
     >
       <Dock className='pointer-events-auto relative z-50 mx-auto flex h-full min-h-full max-w-full transform-gpu items-center bg-background px-1 [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset]'>
-        {DATA.navbar.map((item) => (
-          <DockIcon key={item.href}>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    buttonVariants({ variant: 'ghost', size: 'icon' }),
-                    'size-12'
-                  )}
-                  aria-label={t(item.label.toLowerCase().replace(' ', '.'))}
-                >
-                  <item.icon className='size-4' aria-hidden='true' />
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{t(item.label.toLowerCase().replace(' ', '.'))}</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon>
-        ))}
+        {DATA.navbar.map((item) => {
+          // Map labels to translation keys
+          const labelMap: Record<string, string> = {
+            'Home': 'nav.home',
+            'Sobre': 'nav.about',
+            'Portfolio': 'nav.portfolio',
+            'Contacto': 'nav.contact',
+          };
+          const translationKey = labelMap[item.label] || `nav.${item.label.toLowerCase()}`;
+          return (
+            <DockIcon key={item.href}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      buttonVariants({ variant: 'ghost', size: 'icon' }),
+                      'size-12'
+                    )}
+                    aria-label={t(translationKey)}
+                  >
+                    <item.icon className='size-4' aria-hidden='true' />
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{t(translationKey)}</p>
+                </TooltipContent>
+              </Tooltip>
+            </DockIcon>
+          );
+        })}
         <Separator orientation='vertical' className='h-full' />
         {Object.entries(DATA.contact.social)
           .filter(([_, social]) => social.navbar)

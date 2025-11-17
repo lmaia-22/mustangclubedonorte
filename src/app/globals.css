@@ -8,6 +8,15 @@ html {
   overflow-x: hidden;
   width: 100%;
   max-width: 100vw;
+  /* Hide scrollbar immediately */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 body {
@@ -15,16 +24,27 @@ body {
   width: 100%;
   max-width: 100vw;
   position: relative;
-}
-
-/* Custom scrollbar */
-.scrollbar-hide {
+  /* Hide scrollbar immediately */
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-.scrollbar-hide::-webkit-scrollbar {
+body::-webkit-scrollbar {
   display: none;
+  width: 0;
+  height: 0;
+}
+
+/* Custom scrollbar */
+.scrollbar-hide {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 /* Enhanced animations */
@@ -186,23 +206,33 @@ body {
   }
   body {
     @apply bg-background text-foreground; /* Background and text colors */
-    @apply scrollbar-hide; /* Apply scrollbar-hide class to hide scrollbars */
     overflow-x: hidden; /* Prevent horizontal scroll */
     overflow-y: auto; /* Ensure vertical scrolling is enabled */
     width: 100%;
     max-width: 100vw;
     position: relative;
+    /* Hide scrollbar immediately - applied directly, not via class */
+    -ms-overflow-style: none !important;
+    scrollbar-width: none !important;
   }
+  
+  body::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+  }
+
   /* CSS to hide scrollbar while maintaining scrolling */
   .scrollbar-hide::-webkit-scrollbar {
-    width: 0;
-    height: 0;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
   }
 
   /* Hide scrollbar for Internet Explorer, Edge, and Firefox */
   .scrollbar-hide {
-    -ms-overflow-style: none; /* IE 10+ */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none !important; /* IE 10+ */
+    scrollbar-width: none !important; /* Firefox */
   }
 }
 

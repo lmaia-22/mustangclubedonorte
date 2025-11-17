@@ -41,7 +41,7 @@ export default function Page() {
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <div className='flex flex-col items-center justify-center space-y-4 text-center'>
             <div className='space-y-2'>
-              <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
+              <div className='inline-block rounded-lg bg-foreground px-3 py-2 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
                 {t('about.badge')}
               </div>
               <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
@@ -68,7 +68,7 @@ export default function Page() {
         <BlurFade delay={BLUR_FADE_DELAY * 3}>
           <div className='flex flex-col items-center justify-center space-y-4 text-center'>
             <div className='space-y-2'>
-              <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
+              <div className='inline-block rounded-lg bg-foreground px-3 py-2 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
                 {t('mission.badge')}
               </div>
               <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
@@ -134,7 +134,7 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
             <div className='flex flex-col items-center justify-center space-y-4 text-center'>
               <div className='space-y-2'>
-              <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
+              <div className='inline-block rounded-lg bg-foreground px-3 py-2 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
                 {t('skills.badge')}
               </div>
                 <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
@@ -160,7 +160,7 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className='flex flex-col items-center justify-center space-y-4 text-center'>
               <div className='space-y-2'>
-              <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
+              <div className='inline-block rounded-lg bg-foreground px-3 py-2 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
                 {t('portfolio.badge')}
               </div>
                 <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
@@ -184,7 +184,7 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 13}>
             <div className='flex flex-col items-center justify-center space-y-4 text-center'>
               <div className='space-y-2'>
-              <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
+              <div className='inline-block rounded-lg bg-foreground px-3 py-2 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
                 {t('faq.badge')}
               </div>
                 <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
@@ -227,7 +227,7 @@ export default function Page() {
         <div className='relative w-full max-w-full text-center'>
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
               <div className='space-y-3'>
-              <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
+              <div className='inline-block rounded-lg bg-foreground px-3 py-2 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
                 {t('spotify.badge')}
               </div>
                 <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
@@ -258,7 +258,7 @@ export default function Page() {
         <div className='relative w-full max-w-full text-center'>
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
             <div className='space-y-3'>
-              <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
+              <div className='inline-block rounded-lg bg-foreground px-3 py-2 text-sm text-background transition-all duration-300 hover:scale-105 hover:shadow-lg animate-scale-in'>
                 {t('contact.badge')}
               </div>
               <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
@@ -282,28 +282,6 @@ export default function Page() {
                       {DATA.contact.email}
                     </span>
                   </a>
-                </BlurFade>
-
-                {/* Social Media Links */}
-                <BlurFade delay={BLUR_FADE_DELAY * 18}>
-                  <div className='flex flex-wrap justify-center gap-4 sm:gap-6'>
-                    {Object.entries(DATA.contact.social)
-                      .filter(([_, social]) => social.navbar)
-                      .map(([name, social], index) => (
-                        <BlurFade key={social.name} delay={BLUR_FADE_DELAY * 19 + index * 0.1}>
-                          <a
-                            href={social.url}
-                            target='_blank'
-                            rel='noopener noreferrer'
-                            className='flex flex-col items-center space-y-2 p-3 sm:p-4 rounded-lg bg-muted/50 hover:bg-muted transition-all duration-300 hover:scale-110 hover:shadow-lg min-w-[80px] group'
-                            aria-label={`Visit our ${social.name} page`}
-                          >
-                            <social.icon className='h-6 w-6 sm:h-8 sm:w-8 transition-transform duration-300 group-hover:scale-110' aria-hidden='true' />
-                            <span className='text-xs sm:text-sm font-medium text-center transition-colors duration-300 group-hover:text-primary'>{social.name}</span>
-                          </a>
-                        </BlurFade>
-                      ))}
-                  </div>
                 </BlurFade>
               </div>
             </div>
