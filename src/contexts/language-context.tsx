@@ -26,19 +26,25 @@ interface LanguageProviderProps {
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('pt');
+  const [mounted, setMounted] = useState(false);
 
-  // Load language from localStorage on mount
+  // Load language from localStorage on mount (client-side only)
   useEffect(() => {
-    const savedLanguage = localStorage.getItem('mustang-club-language') as Language;
-    if (savedLanguage && (savedLanguage === 'pt' || savedLanguage === 'en')) {
-      setLanguage(savedLanguage);
+    setMounted(true);
+    if (typeof window !== 'undefined') {
+      const savedLanguage = localStorage.getItem('mustang-club-language') as Language;
+      if (savedLanguage && (savedLanguage === 'pt' || savedLanguage === 'en')) {
+        setLanguage(savedLanguage);
+      }
     }
   }, []);
 
-  // Save language to localStorage when it changes
+  // Save language to localStorage when it changes (client-side only)
   useEffect(() => {
-    localStorage.setItem('mustang-club-language', language);
-  }, [language]);
+    if (mounted && typeof window !== 'undefined') {
+      localStorage.setItem('mustang-club-language', language);
+    }
+  }, [language, mounted]);
 
   // Translation function
   const t = (key: string): string => {
@@ -127,6 +133,23 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
       // Language Toggle
       'lang.pt': { pt: 'Português', en: 'Portuguese' },
       'lang.en': { pt: 'English', en: 'English' },
+
+      // Terms Page
+      'terms.title': { pt: 'Termos e Condições', en: 'Terms and Conditions' },
+      'terms.description': { pt: 'Os nossos Termos e Condições', en: 'Our Terms and Conditions' },
+      'terms.badge': { pt: 'Termos', en: 'Terms' },
+      'terms.acceptance': { pt: 'Aceitação dos Termos', en: 'Acceptance of Terms' },
+      'terms.acceptance.text': { pt: 'Ao aceder e utilizar este site, concorda em cumprir e estar vinculado aos seguintes termos e condições. Se não concordar com alguma parte destes termos, por favor, não utilize o site.', en: 'By accessing and using this site, you agree to comply with and be bound by the following terms and conditions. If you do not agree with any part of these terms, please do not use the site.' },
+      'terms.usage': { pt: 'Utilização do Site', en: 'Site Usage' },
+      'terms.usage.text': { pt: 'Este site é oferecido para uso pessoal e não comercial. Concorda em não utilizar este site para qualquer propósito ilegal ou proibido por estes termos e condições.', en: 'This site is offered for personal and non-commercial use. You agree not to use this site for any illegal purpose or prohibited by these terms and conditions.' },
+      'terms.modifications': { pt: 'Modificações aos Termos', en: 'Modifications to Terms' },
+      'terms.modifications.text': { pt: 'Reservamo-nos o direito de alterar estes termos a qualquer momento. Quaisquer alterações serão publicadas nesta página e entrarão em vigor imediatamente após a publicação. Recomendamos que reveja esta página regularmente.', en: 'We reserve the right to change these terms at any time. Any changes will be published on this page and will take effect immediately after publication. We recommend that you review this page regularly.' },
+      'terms.intellectual': { pt: 'Direitos de Propriedade Intelectual', en: 'Intellectual Property Rights' },
+      'terms.intellectual.text': { pt: 'Todo o conteúdo deste site, incluindo textos, gráficos, logótipos, ícones e imagens, é da nossa propriedade ou dos nossos licenciadores e está protegido por leis de direitos de autor e outras leis de propriedade intelectual.', en: 'All content on this site, including text, graphics, logos, icons and images, is our property or that of our licensors and is protected by copyright laws and other intellectual property laws.' },
+      'terms.links': { pt: 'Links para Sites de Terceiros', en: 'Links to Third Party Sites' },
+      'terms.links.text': { pt: 'Este site pode conter links para outros sites que não são operados por nós. Não temos controlo sobre o conteúdo desses sites e não aceitamos responsabilidade por qualquer perda ou dano que possa surgir do uso dos mesmos.', en: 'This site may contain links to other sites that are not operated by us. We have no control over the content of these sites and do not accept responsibility for any loss or damage that may arise from their use.' },
+      'terms.admission': { pt: 'O Mustang Clube Do Norte reserva-se o direito de admissão.', en: 'Mustang Clube Do Norte reserves the right of admission.' },
+      'terms.ford.trademark': { pt: '*A oval da Ford, a palavra Mustang e o logótipo do cavalo empinado são marcas registadas e propriedade da Ford Motor Company. *', en: '*The Ford oval, the word Mustang and the rearing horse logo are registered trademarks and property of Ford Motor Company. *' },
     };
 
     const translation = translations[key as keyof typeof translations];

@@ -1,98 +1,107 @@
-import BlurFade from '@/components/magicui/blur-fade';
-import Markdown from 'react-markdown';
+'use client';
 
-export const metadata = {
-  title: 'Termos e Condições',
-  description: 'Os nossos Termos e Condições',
-  description1: 'Aceitação dos Termos',
-  description2: 'Utilização do Site',
-  description3: 'Modificações aos Termos',
-  description4: 'Direitos de Propriedade Intelectual',
-  description5: 'Links para Sites de Terceiros',
-};
+import { useEffect, useState } from 'react';
+import BlurFade from '@/components/magicui/blur-fade';
+import { useLanguage } from '@/contexts/language-context';
 
 const BLUR_FADE_DELAY = 0.04;
 
-export default async function TermsPage() {
+export default function TermsPage() {
+  const { t } = useLanguage();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setMounted(true);
+    }
+  }, []);
+
+  if (typeof window === 'undefined' || !mounted) {
+    return (
+      <section id='terms' className='mt-4 min-h-screen' suppressHydrationWarning>
+        <div className='flex items-center justify-center min-h-[50vh]'>
+          <div className='text-muted-foreground'>Loading...</div>
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section id='terms' className='mt-4'>
+    <section id='terms' className='mt-4' suppressHydrationWarning>
       <BlurFade delay={BLUR_FADE_DELAY * 3}>
         <div className='flex flex-col items-center justify-center space-y-4 text-center'>
           <div className='space-y-2'>
             <div className='inline-block rounded-lg bg-foreground px-3 py-1 text-sm text-background'>
-              Termos
+              {t('terms.badge')}
             </div>
             <h2 className='text-3xl font-bold tracking-tighter sm:text-5xl'>
-              {metadata.title}
+              {t('terms.title')}
             </h2>
             <p className='text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed'>
-              {metadata.description}
+              {t('terms.description')}
             </p>
           </div>
         </div>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 4}>
-        <Markdown className='prose mt-4 max-w-full text-pretty text-center font-sans text-base dark:prose-invert'>
-          {metadata.description1}
-        </Markdown>
+        <h3 className='prose mt-4 max-w-full text-pretty text-center font-sans text-base dark:prose-invert'>
+          {t('terms.acceptance')}
+        </h3>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 4} className='my-4'>
-        <Markdown className='prose max-w-full text-pretty text-center font-sans text-base text-muted-foreground dark:prose-invert'>
-          Ao aceder e utilizar este site, concorda em cumprir e estar vinculado
-          aos seguintes termos e condições. Se não concordar com alguma parte
-          destes termos, por favor, não utilize o site.
-        </Markdown>
+        <p className='prose max-w-full text-pretty text-center font-sans text-base text-muted-foreground dark:prose-invert'>
+          {t('terms.acceptance.text')}
+        </p>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 4}>
-        <Markdown className='prose mt-4 max-w-full text-pretty text-center font-sans text-base dark:prose-invert'>
-          {metadata.description2}
-        </Markdown>
+        <h3 className='prose mt-4 max-w-full text-pretty text-center font-sans text-base dark:prose-invert'>
+          {t('terms.usage')}
+        </h3>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 4} className='my-4'>
-        <Markdown className='prose max-w-full text-pretty text-center font-sans text-base text-muted-foreground dark:prose-invert'>
-          Este site é oferecido para uso pessoal e não comercial. Concorda em
-          não utilizar este site para qualquer propósito ilegal ou proibido por
-          estes termos e condições.
-        </Markdown>
+        <p className='prose max-w-full text-pretty text-center font-sans text-base text-muted-foreground dark:prose-invert'>
+          {t('terms.usage.text')}
+        </p>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 4}>
-        <Markdown className='prose mt-4 max-w-full text-pretty text-center font-sans text-base dark:prose-invert'>
-          {metadata.description3}
-        </Markdown>
+        <h3 className='prose mt-4 max-w-full text-pretty text-center font-sans text-base dark:prose-invert'>
+          {t('terms.modifications')}
+        </h3>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 4} className='my-4'>
-        <Markdown className='prose max-w-full text-pretty text-center font-sans text-base text-muted-foreground dark:prose-invert'>
-          Reservamo-nos o direito de alterar estes termos a qualquer momento.
-          Quaisquer alterações serão publicadas nesta página e entrarão em vigor
-          imediatamente após a publicação. Recomendamos que reveja esta página
-          regularmente.
-        </Markdown>
+        <p className='prose max-w-full text-pretty text-center font-sans text-base text-muted-foreground dark:prose-invert'>
+          {t('terms.modifications.text')}
+        </p>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 4}>
-        <Markdown className='prose mt-4 max-w-full text-pretty text-center font-sans text-base dark:prose-invert'>
-          {metadata.description4}
-        </Markdown>
+        <h3 className='prose mt-4 max-w-full text-pretty text-center font-sans text-base dark:prose-invert'>
+          {t('terms.intellectual')}
+        </h3>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 4} className='my-4'>
-        <Markdown className='prose max-w-full text-pretty text-center font-sans text-base text-muted-foreground dark:prose-invert'>
-          Todo o conteúdo deste site, incluindo textos, gráficos, logótipos,
-          ícones e imagens, é da nossa propriedade ou dos nossos licenciadores e
-          está protegido por leis de direitos de autor e outras leis de
-          propriedade intelectual.
-        </Markdown>
+        <p className='prose max-w-full text-pretty text-center font-sans text-base text-muted-foreground dark:prose-invert'>
+          {t('terms.intellectual.text')}
+        </p>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 4}>
-        <Markdown className='prose mt-4 max-w-full text-pretty text-center font-sans text-base dark:prose-invert'>
-          {metadata.description5}
-        </Markdown>
+        <h3 className='prose mt-4 max-w-full text-pretty text-center font-sans text-base dark:prose-invert'>
+          {t('terms.links')}
+        </h3>
       </BlurFade>
       <BlurFade delay={BLUR_FADE_DELAY * 4} className='my-4'>
-        <Markdown className='prose max-w-full text-pretty text-center font-sans text-base text-muted-foreground dark:prose-invert'>
-          ste site pode conter links para outros sites que não são operados por
-          nós. Não temos controlo sobre o conteúdo desses sites e não aceitamos
-          responsabilidade por qualquer perda ou dano que possa surgir do uso
-          dos mesmos.
-        </Markdown>
+        <p className='prose max-w-full text-pretty text-center font-sans text-base text-muted-foreground dark:prose-invert'>
+          {t('terms.links.text')}
+        </p>
+      </BlurFade>
+      <BlurFade delay={BLUR_FADE_DELAY * 5} className='my-4'>
+        <p className='prose mt-4 max-w-full text-pretty text-center font-sans text-base font-semibold dark:prose-invert'>
+          {t('terms.admission')}
+        </p>
+      </BlurFade>
+      <BlurFade delay={BLUR_FADE_DELAY * 5} className='my-4'>
+        <p className='prose max-w-full text-pretty text-center font-sans text-sm italic text-muted-foreground dark:prose-invert'>
+          {t('terms.ford.trademark')}
+        </p>
       </BlurFade>
     </section>
   );
